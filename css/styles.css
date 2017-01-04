@@ -128,15 +128,6 @@
 #filter-bar{
 	width: 50%;
 }
-#dropdown-label{
-	background-color: #005683;
-	font-size: 101%;
-	margin-right: 20px;
-}
-
-.partner-details{
-	width: 50%;
-}
 
 .summary-table{
 	width: 90%;
@@ -148,6 +139,13 @@
 
 #trust-funds-table thead tr{
 	background-color:#36A2EB;
+}
+
+/*Trust Funds*/
+
+#funds-type-radio{
+  padding-top: 10px;
+  padding-bottom: 15px;
 }
 
 /*footer*/
@@ -176,6 +174,21 @@ body {
 }
 
 /*Misc stuff*/
+
+.half-width{
+  width: 50%;
+}
+
+.quarter-width{
+  width: 25%;
+}
+
+.input-label{
+  background-color: #005683;
+  font-size: 101%;
+  margin-right: 20px;
+}
+
 .fright {
   float: right;
 }
@@ -199,3 +212,7 @@ hr{
 .tcenter {
   text-align: center;
 }  
+
+.bggrey{
+  background-color: #F9F9F9
+}

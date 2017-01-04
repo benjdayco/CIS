@@ -84,9 +84,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="#">Home Dashboard <span class="sr-only">(current)</span></a></li>
-            <li><a href="trust-funds-home.html">Trust Funds</a></li>
+            <li class="active"><a href="#">Trust Funds</a></li>
             <li><a href="#">Project Specific Cofinancing </a></li>  
-            <li class="active"><a href="index.html">Partners</a></li>  
+            <li><a href="index.html">Partners</a></li>  
             <li><a href="#">About This Website</a></li>  
             <li><a href="#">Contact Us</a></li>  
           </ul> 
@@ -97,76 +97,110 @@
 
   <!--MAIN BODY-->
     <div class="container">
-      <h3 class="torange">Partners</h3>
+      <h3 class="torange">Trust Funds</h3>
      
+      <div id="funds-type-radio" class="container">
+        <span class="label label-default input-label">Select Fund Type</span>        
+        <label class="radio-inline"><input type="radio" name="optradio">Single Partner</label>
+        <label class="radio-inline"><input type="radio" name="optradio">Multi Partner</label>
+        <label class="radio-inline"><input type="radio" name="optradio"  checked="checked">Financial Partnership Facility</label>
+        <label class="radio-inline"><input type="radio" name="optradio">Global Trust Fund</label>           
+      </div>
+
       <div class="panel panel-default">
         <div class="panel-body">
+          <h4 class="torange">Financial Partnership Facility</h4>
           <div class="panel panel-default" id="filter-bar">
             <div class="panel-body">
-              <span class="label label-default input-label">List by Type</span>
-              <select id="partner-type-select">
+            <span class="label label-default input-label">Trust Funds by Availability</span>
+              <select id="fund-availability-select">
                 <option value="">All</option>
-                <option value="Bilateral-Country">Bilateral-Country</option>
-                <option value="Multilateral-Donor">Multilateral-Donor</option>
-                <option value="Commercial">Commercial</option>
-                <option value="Private Non-profit">Private Non-profit</option>
+                <option value="Fully Committed">Fully Committed</option>
+                <option value="With Available Balance">With Available Balance</option>
+                <option value="Close">Close</option>
               </select>
-            </div>
+             </div>
           </div>
 
           <table id="main-table" class="table table-striped" cellspacing="0" width="100%">
-            <caption>Click on the Partner Name for details, including fund contributions</caption>
+            <caption>Click on the Fund Name for details</caption>
             <thead>
               <tr>
-                <th>Partner Type</th>
-                <th>Partner Name</th>
-                <th>Agency/Ministry/Embassy</th>
-                <th>Total Contribution</th>
+                <th>Parent Fund Name</th>
+                <th>Fund Name</th>
+                <th>Status</th>
+                <th>Fund Availablity</th>
+                <th>Available Balance ($ in millions)</th>
+                <th>Sector</th>
+                <th>Fund Manager</th>
+                <th>Fund Manager Department</th> 
               </tr>
             </thead>
-            <tbody>
+            <tbody>                        
               <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+                <td>Rockefeller Foundation</td>
+                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
+                <td>Active</td>
+                <td>Fully Committed</td>
+                <td>13.5</td>
+                <td>xxxx, xxxxx, xxxx</td>
+                <td>S. Roth -4111</td>
+                <td>xxxxxxxx</td>
+              </tr>
+               <tr>
+                <td>Rockefeller Foundation</td>
+                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
+                <td>Active</td>
+                <td>Close</td>
+                <td>10.5</td>
+                <td>xxxx, xxxxx, xxxx</td>
+                <td>S. Roth -4111</td>
+                <td>xxxxxxxx</td>
+              </tr>
+               <tr>
+                <td>Bill and Melinda Gates Foundation</td>
+                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
+                <td>Active</td>
+                <td>With Available Balance</td>
+                <td>13.5</td>
+                <td>xxxx, xxxxx, xxxx</td>
+                <td>G. Williams -4111</td>
+                <td>xxxxxxxx</td>
+              </tr>
+               <tr>
+                <td>Bill and Melinda Gates Foundation</td>
+                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
+                <td>Active</td>
+                <td>Fully Committed</td>
+                <td>13.5</td>
+                <td>xxxx, xxxxx, xxxx</td>
+                <td>G. Williams -4111</td>
+                <td>xxxxxxxx</td>
+              </tr>
+               <tr>
+                <td>Ford Foundation</td>
+                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
+                <td>Active</td>
+                <td>With Available Balance</td>
+                <td>13.5</td>
+                <td>xxxx, xxxxx, xxxx</td>
+                <td>F. Williams -4111</td>
+                <td>xxxxxxxx</td>
               </tr>
               <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+                <td>World Wildlife Fund</td>
+                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
+                <td>Active</td>
+                <td>Fully Committed</td>
+                <td>13.5</td>
+                <td>xxxx, xxxxx, xxxx</td>
+                <td>B. Arnold -4111</td>
+                <td>xxxxxxxx</td>
               </tr>
-              <tr>
-                <td>Commercial</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
-              </tr>
-              <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
-              </tr>
-              <tr>
-                <td>Multilateral-Donor</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
-              </tr>
-              <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
-              </tr>
-
             </tbody>
-            </table>
+          </table>
         </div>
       </div>
-
     </div>
 
     <hr>
@@ -211,15 +245,14 @@
       $(document).ready(function() {
         $('#main-table').DataTable( {
             "dom": 'rtip',
-            "ordering": false,
             "info":     false,
             "pageLength": 5
         } );
-        //redraw datatable when user selects a partner type
+        //redraw datatable when user selects a fund type
         var table = $('#main-table').DataTable();
-        $('#partner-type-select').change( function() {
+        $('#fund-availability-select').change( function() {
             table
-              .columns( 0 )
+              .columns( 3 )
               .search( this.value )
               .draw();
         } );

@@ -55,8 +55,8 @@
           <ul class="nav navbar-nav">
             <li><a href="#">Home Dashboard <span class="sr-only">(current)</span></a></li>
             <li><a href="trust-funds-home.html">Trust Funds</a></li>
-            <li><a href="cofinance-projects-home.html">Cofinance Projects </a></li>  
-            <li class="active"><a href="index.html">Partners</a></li>  
+            <li class="active"><a href="#">Cofinance Projects </a></li>  
+            <li><a href="index.html">Partners</a></li>  
             <li><a href="#">About This Website</a></li>  
             <li><a href="#">Contact Us</a></li>  
           </ul> 
@@ -69,7 +69,7 @@
     <div class="container">
       <!--SEARCH BAR-->
       <div class="row">
-        <div class="col-md-8"><h3 class="torange">Partners</h3></div>
+        <div class="col-md-8"><h3 class="torange">Cofinance Projects</h3></div>
          <div id="custom-search-input">
           <div class="input-group col-md-4">
             <input type="text" class="  search-query form-control" placeholder="Search" />
@@ -84,67 +84,118 @@
       <!--END OF SEARCH BAR-->     
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="panel panel-default" id="filter-bar">
-            <div class="panel-body">
-              <span class="label label-default input-label">List by Type</span>
-              <select id="partner-type-select">
-                <option value="">All</option>
-                <option value="Bilateral-Country">Bilateral-Country</option>
-                <option value="Multilateral-Donor">Multilateral-Donor</option>
-                <option value="Commercial">Commercial</option>
-                <option value="Private Non-profit">Private Non-profit</option>
-              </select>
+          <div class="panel panel-default">
+            <div class="panel-body">  
+              <form id="radio-form">
+                <span class="label label-default input-label">Status</span>&nbsp;
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" value="">All
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" value="Active">Active
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" value="Closed">Closed
+                </label>
+                 <label class="radio-inline">
+                  <input type="radio" name="optradio" value="Cancelled">Cancelled
+                </label>
+              </form><br>
+              
+              <div id="cofinance-filter" class="row">
+                  <div class="col-md-4">
+                    <span class="label label-default input-label">Product Type</span>
+                    <select id="product-type-select">
+                      <option value="">All</option>
+                      <option value="GRANT">GRANT</option>
+                      <option value="LOAN">LOAN</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <span class="label label-default input-label">Year</span>
+                    <select id="year-select">
+                      <option value="">All</option>
+                      <option value="2004">2004</option>
+                      <option value="2005">2005</option>
+                      <option value="2006">2006</option>
+                      <option value="2007">2007</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <span class="label label-default input-label">DMC</span>
+                    <select id="dmc-select">
+                      <option value="">All</option>
+                      <option value="AFG">AFG</option>
+                      <option value="BAN">BAN</option>
+                      <option value="CAM">CAM</option>
+                      <option value="IND">IND</option>
+                    </select>
+                  </div>
+              </div>
             </div>
           </div>
 
           <table id="main-table" class="table table-striped" cellspacing="0" width="100%">
-            <caption>Click on the Partner Name for details, including fund contributions</caption>
             <thead>
               <tr>
-                <th>Partner Type</th>
-                <th>Partner Name</th>
-                <th>Agency/Ministry/Embassy</th>
-                <th>Total Contribution</th>
+                <th>Product Type</th>
+                <th>ADB Approved Number</th>
+                <th>DMC</th>
+                <th>Product Name</th>
+                <th>Year</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+                <td>LOAN</td>
+                <td>0001</td>
+                <td>IND</td>
+                <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                <td>2006</td>
+                <td>Closed</td>
               </tr>
               <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+                <td>LOAN</td>
+                <td>0002</td>
+                <td>IND</td>
+                <td><a href="cofinance-projects.html">Second Education Project</a></td>
+                <td>2007</td>
+                <td>Active</td>
+              </tr>
+               <tr>
+                <td>GRANT</td>
+                <td>0003</td>
+                <td>AFG</td>
+                <td><a href="cofinance-projects.html">Earthquake and Tsunami Emergency Support</a></td>
+                <td>2005</td>
+                <td>Closed</td>
               </tr>
               <tr>
-                <td>Commercial</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+                <td>LOAN</td>
+                <td>0004</td>
+                <td>AFG</td>
+                <td><a href="cofinance-projects.html">Northeast Community Restoration and Development Project</a></td>
+                <td>2004</td>
+                <td>Cancelled</td>
               </tr>
               <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
-              </tr>
-              <tr>
-                <td>Multilateral-Donor</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
-              </tr>
-              <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
-              </tr>
-
+                <td>GRANT</td>
+                <td>0005</td>
+                <td>BAN</td>
+                <td><a href="cofinance-projects.html">Road Sector Improvement</a></td>
+                <td>2006</td>
+                <td>Closed</td>
+              </tr> 
+            <tr>
+                <td>GRANT</td>
+                <td>0006</td>
+                <td>BAN</td>
+                <td><a href="cofinance-projects.html">Second Road Sector Improvement</a></td>
+                <td>2006</td>
+                <td>Active</td>
+              </tr>            
+              
             </tbody>
             </table>
         </div>
@@ -194,18 +245,40 @@
       $(document).ready(function() {
         $('#main-table').DataTable( {
             "dom": 'rtip',
-            "ordering": false,
+            "order": [[ 1, "asc" ]],
             "info":     false,
             "pageLength": 5
         } );
-        //redraw datatable when user selects a partner type
+        //redraw datatable when user selects a filter
+
         var table = $('#main-table').DataTable();
-        $('#partner-type-select').change( function() {
+        $('#product-type-select').change( function() {
             table
               .columns( 0 )
               .search( this.value )
               .draw();
         } );
+
+        $('#year-select').change( function() {
+            table
+              .columns( 4 )
+              .search( this.value )
+              .draw();
+        } );
+
+        $('#dmc-select').change( function() {
+            table
+              .columns( 2 )
+              .search( this.value )
+              .draw();
+        } );
+
+        $('#radio-form input').on('change', function() {
+          table
+              .columns( 5 )
+              .search( $('input[name=optradio]:checked', '#radio-form').val() )
+              .draw();
+        });
 
       } );
     </script>

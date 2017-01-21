@@ -2,7 +2,7 @@
 #custom-search-input {
     margin:0;
     margin-top: 10px;
-    padding: 0;
+    padding-top: 5px;
 }
  
 #custom-search-input .search-query {
@@ -54,7 +54,7 @@
 
 /*Header*/
 .header-bar{
-	padding-top: 2px;
+	padding-top: 10px;
 	padding-left: 5px;
 }
 .header-bar img {
@@ -148,6 +148,35 @@
 	background-color:#36A2EB;
 }
 
+/* Trust Funds */
+
+#funds-type-radio{
+  padding-bottom: 10px;
+}
+.fund-type-row{
+  background-color: #F9F9F9;
+}
+
+.fund{
+  background-color: #F9F9F9;
+}
+
+/*Cofinance Projects*/
+
+#cofinance-filter{
+  padding-top: 10px;
+  width: 65%;
+}
+
+.financing-information-type th{
+  border: none;
+  border-collapse: collapse;
+
+}
+
+.financing-information{
+  background-color: #F9F9F9;
+}
 /*footer*/
 
 footer {
@@ -178,6 +207,7 @@ body {
   float: right;
 }
 
+
 hr{
 	margin-bottom: 5px;
 }
@@ -196,4 +226,8 @@ hr{
 
 .tcenter {
   text-align: center;
-}  
+} 
+
+hr{
+  padding: 0px;
+} 

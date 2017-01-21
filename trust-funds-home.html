@@ -27,37 +27,7 @@
   </head>
 
   <body>
-    <!--SEARCH BAR-->
-    <div class="container-fluid search-bar">
-      <div class="row">
-        <h5 class="tcenter twhite">Confinancing Information System</h5>
-         <div id="custom-search-input">
-            <div class="icon-group col-md-2">
-              <button type="button" class="btn btn-default btn-lg">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              </button>
-              <button type="button" class="btn btn-default btn-lg">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              </button>
-               <button type="button" class="btn btn-default btn-lg">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-              </button>
-               <button type="button" class="btn btn-default btn-lg">
-                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-              </button>
-            </div>
-            <div class="input-group col-md-10">
-              <input type="text" class="  search-query form-control" placeholder="Search" />
-              <span class="input-group-btn">
-                <button class="btn btn-danger" type="button">
-                    <span id="search-icon" class=" glyphicon glyphicon-search"></span>
-                </button>
-              </span>
-            </div>
-        </div>
-      </div>
-    </div>
-    <!--END OF SEARCH BAR-->
+  
     <!--HEADER BAR-->
     <div class="container-fluid">
       <div class="row header-bar">
@@ -85,7 +55,7 @@
           <ul class="nav navbar-nav">
             <li><a href="#">Home Dashboard <span class="sr-only">(current)</span></a></li>
             <li class="active"><a href="#">Trust Funds</a></li>
-            <li><a href="#">Project Specific Cofinancing </a></li>  
+            <li><a href="cofinance-projects-home.html">Cofinance Projects </a></li> 
             <li><a href="index.html">Partners</a></li>  
             <li><a href="#">About This Website</a></li>  
             <li><a href="#">Contact Us</a></li>  
@@ -97,105 +67,167 @@
 
   <!--MAIN BODY-->
     <div class="container">
-      <h3 class="torange">Trust Funds</h3>
-     
-      <div id="funds-type-radio" class="container">
-        <span class="label label-default input-label">Select Fund Type</span>        
-        <label class="radio-inline"><input type="radio" name="optradio">Single Partner</label>
-        <label class="radio-inline"><input type="radio" name="optradio">Multi Partner</label>
-        <label class="radio-inline"><input type="radio" name="optradio"  checked="checked">Financial Partnership Facility</label>
-        <label class="radio-inline"><input type="radio" name="optradio">Global Trust Fund</label>           
+    <!--SEARCH BAR-->
+      <div class="row">
+        <div class="col-md-8"><h3 class="torange">Trust Funds</h3></div>
+         <div id="custom-search-input">
+          <div class="input-group col-md-4">
+            <input type="text" class="  search-query form-control" placeholder="Search" />
+            <span class="input-group-btn">
+              <button class="btn btn-danger" type="button">
+                  <span id="search-icon" class=" glyphicon glyphicon-search"></span>
+              </button>
+            </span>
+          </div>
+        </div> 
       </div>
+      <!--END OF SEARCH BAR-->  
+     
+     
 
+      <!--MAIN BODY-->
+    <div class="container">
       <div class="panel panel-default">
         <div class="panel-body">
-          <h4 class="torange">Financial Partnership Facility</h4>
-          <div class="panel panel-default" id="filter-bar">
+          <div class="panel panel-default">
             <div class="panel-body">
-            <span class="label label-default input-label">Trust Funds by Availability</span>
-              <select id="fund-availability-select">
-                <option value="">All</option>
-                <option value="Fully Committed">Fully Committed</option>
-                <option value="With Available Balance">With Available Balance</option>
-                <option value="Close">Close</option>
-              </select>
+
+              <div id="funds-type-radio" class="container">
+                <span class="label label-default input-label">Select Fund Type</span>        
+                <label class="radio-inline"><input type="radio" name="optradio">Single Partner</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Multi Partner</label>
+                <label class="radio-inline"><input type="radio" name="optradio"  checked="checked">Financial Partnership Facility</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Global Trust Fund</label>           
+              </div>
+              
+              <div class="container">
+                <span class="label label-default input-label">Sector</span>
+                <select id="sector-select">
+                  <option value="">All</option>
+                  <option value="Agriculture">Agriculture</option>
+                  <option value="Education">Education</option>
+                  <option value="Energy">Energy</option>
+                </select>
+             
+                <span class="label label-default input-label">DMC</span>
+                <select id="sector-select">
+                  <option value="">All</option>
+                  <option value="Agriculture">Agriculture</option>
+                  <option value="Education">Education</option>
+                  <option value="Energy">Energy</option>
+                </select>
+           
+                <span class="label label-default input-label">Financing Products</span>
+                <select id="sector-select">
+                  <option value="">All</option>
+                  <option value="Agriculture">Agriculture</option>
+                  <option value="Education">Education</option>
+                  <option value="Energy">Energy</option>
+                </select>
+              
+                <span class="label label-default input-label">Partners</span>
+                <select id="sector-select">
+                  <option value="">All</option>
+                  <option value="Agriculture">Agriculture</option>
+                  <option value="Education">Education</option>
+                  <option value="Energy">Energy</option>
+                </select>
+              </div>
+              
+
+
              </div>
           </div>
 
-          <table id="main-table" class="table table-striped" cellspacing="0" width="100%">
+          <table id="main-table" class="table" cellspacing="0" width="100%">
             <caption>Click on the Fund Name for details</caption>
             <thead>
               <tr>
-                <th>Parent Fund Name</th>
-                <th>Fund Name</th>
+                <th>Fund Type</th>
                 <th>Status</th>
-                <th>Fund Availablity</th>
-                <th>Available Balance ($ in millions)</th>
-                <th>Sector</th>
+                <th>Fund Name</th>
+                <th>Available Balance</th>
+                <th><a href="" title="Agriculture"><img src="img/agri.png"></a></th>
+                <th><a href="" title="Education"><img src="img/education.png"></a></th>
+                <th><a href="" title="Energy"><img src="img/energy.png"></a></th>
+                <th><a href="" title="Finance"><img src="img/finance.png"></a></th>
+                <th><a href="" title="Health"><img src="img/health.png"></a></th>
+                <th><a href="" title="ICT"><img src="img/ict.png"></a></th>
+                <th><a href="" title="Industry and Trade"><img src="img/industry&trade.png"></a></th>
+                <th><a href="" title="Multisector"><img src="img/multisector.png"></a></th>
+                <th><a href="" title="Public Management"><img src="img/pulicMgt.png"></a></th>
+                <th><a href="T" title="Transport"><img src="img/transport.png"></a></th>
+                <th><a href="" title="Water and Urban"><img src="img/water&urban.png"></a></th>
+                <th>DMC</th>
                 <th>Fund Manager</th>
                 <th>Fund Manager Department</th> 
               </tr>
             </thead>
-            <tbody>                        
-              <tr>
-                <td>Rockefeller Foundation</td>
-                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
+            <tbody>
+              <tr><td colspan="18" class="fund-type-row"><a href=""><span id="single-partner" class="glyphicon glyphicon-triangle-right pointer fund-type" aria-hidden="true"></span></a><b>I. Single Partner</b></td></tr>
+              <tr><td colspan="18" class="parent-fund single-partner"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a><b>Clean Energy Fund</b></td></tr>                     
+              <tr class="fund 1 single-partner-fund">
+                <td></td>
                 <td>Active</td>
-                <td>Fully Committed</td>
+                <td><a href="trust-funds.html">Clean Energy Fund</a></td> 
                 <td>13.5</td>
-                <td>xxxx, xxxxx, xxxx</td>
+                <td></td>
+                <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>All DMCs</td>
                 <td>S. Roth -4111</td>
-                <td>xxxxxxxx</td>
+                <td>EARD</td>
               </tr>
-               <tr>
-                <td>Rockefeller Foundation</td>
-                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
+              <tr><td colspan="18" class="parent-fund"><b>Clean Energy Fund</b></td></tr>                     
+              <tr class="fund 1 single-partner-fund">
+                <td></td>
                 <td>Active</td>
-                <td>Close</td>
-                <td>10.5</td>
-                <td>xxxx, xxxxx, xxxx</td>
+                <td><a href="trust-funds.html">Clean Energy Fund</a></td> 
+                <td>13.5</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>All DMCs</td>
                 <td>S. Roth -4111</td>
-                <td>xxxxxxxx</td>
+                <td>EARD</td>
               </tr>
-               <tr>
-                <td>Bill and Melinda Gates Foundation</td>
-                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
+              <tr><td colspan="18" class="fund-type-row"><a href=""><span id="multi-partner" class="glyphicon glyphicon-triangle-right pointer fund-type" aria-hidden="true"></span></a><b>II. Multi-Partner</b></td></tr>   
+              <tr><td colspan="18" class="parent-fund multi-partner"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer" aria-hidden="true"></span></a><b>World Wildlife Fund</b></td></tr>                          
+              <tr class="fund 2 multi-partner-fund">
+                <td></td>
                 <td>Active</td>
-                <td>With Available Balance</td>
+                <td><a href="trust-funds.html">World Wildlife Fund</a></td> 
                 <td>13.5</td>
-                <td>xxxx, xxxxx, xxxx</td>
-                <td>G. Williams -4111</td>
-                <td>xxxxxxxx</td>
-              </tr>
-               <tr>
-                <td>Bill and Melinda Gates Foundation</td>
-                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
-                <td>Active</td>
-                <td>Fully Committed</td>
-                <td>13.5</td>
-                <td>xxxx, xxxxx, xxxx</td>
-                <td>G. Williams -4111</td>
-                <td>xxxxxxxx</td>
-              </tr>
-               <tr>
-                <td>Ford Foundation</td>
-                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
-                <td>Active</td>
-                <td>With Available Balance</td>
-                <td>13.5</td>
-                <td>xxxx, xxxxx, xxxx</td>
-                <td>F. Williams -4111</td>
-                <td>xxxxxxxx</td>
-              </tr>
-              <tr>
-                <td>World Wildlife Fund</td>
-                <td><a href="trust-funds.html">XXXXXXXXXX</a></td>
-                <td>Active</td>
-                <td>Fully Committed</td>
-                <td>13.5</td>
-                <td>xxxx, xxxxx, xxxx</td>
-                <td>B. Arnold -4111</td>
-                <td>xxxxxxxx</td>
+                <td></td>
+                <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                <td></td>
+                <td>All DMCs</td>
+                <td>B. Pana -4111</td>
+                <td>IED</td>
               </tr>
             </tbody>
           </table>
@@ -240,21 +272,31 @@
     </script>
     <!-- Can place script tags with JavaScript files here -->
     <script type="text/javascript" class="init">
-    
-      $(document).ready(function() {
-        $('#main-table').DataTable( {
-            "dom": 'rtip',
-            "info":     false,
-            "pageLength": 5
-        } );
-        //redraw datatable when user selects a fund type
-        var table = $('#main-table').DataTable();
-        $('#fund-availability-select').change( function() {
-            table
-              .columns( 3 )
-              .search( this.value )
-              .draw();
-        } );
+    $(document).ready(function() {
+     
+        $('.fund').hide();
+        $('.parent-fund').hide();
+
+          //toggle parent-fund or fund rows on click
+        $('.pointer').on('click', function(e){
+          e.preventDefault();
+          $(this).toggleClass('glyphicon glyphicon-triangle-bottom').toggleClass('glyphicon glyphicon-triangle-right');
+          var id = $(this).attr('id');
+         
+              $('.'+id).toggle('fast');
+          //hide fund rows if fund-type row is hidden
+          if($(this).hasClass('fund-type')) {
+            var parent_fund = '.'+id+"-pointer";
+
+            $( parent_fund).removeClass( "glyphicon glyphicon-triangle-bottom" ).addClass( "glyphicon glyphicon-triangle-right" );
+           
+            if ($(parent_fund).is(":visible")) {
+              var fund_class = id+"-fund";
+             
+              $("."+fund_class).hide();
+            }
+          } 
+        })
 
       } );
     </script>

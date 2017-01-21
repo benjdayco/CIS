@@ -148,6 +148,20 @@
 	background-color:#36A2EB;
 }
 
+<<<<<<< HEAD
+.partner-field-name {
+  font-weight: bold;
+}
+
+.partners-project-list {
+  font-size: 10px;
+}
+
+.partners-project-list thead {
+  font-weight: bold;
+}
+
+=======
 /* Trust Funds */
 
 #funds-type-radio{
@@ -177,6 +191,7 @@
 .financing-information{
   background-color: #F9F9F9;
 }
+>>>>>>> master
 /*footer*/
 
 footer {
@@ -226,8 +241,14 @@ hr{
 
 .tcenter {
   text-align: center;
+<<<<<<< HEAD
+}
+
+  
+=======
 } 
 
 hr{
   padding: 0px;
 } 
+>>>>>>> master

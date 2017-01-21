@@ -166,7 +166,7 @@
             <tbody>
               <!--SINGLE PARTNER-->
               <tr><td colspan="18" class="fund-type-row"><a href=""><span id="single-partner" class="glyphicon glyphicon-triangle-right pointer fund-type" aria-hidden="true"></span></a><b>I. Single Partner</b></td></tr>
-              <tr><td colspan="18" class="parent-fund single-partner"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a><b>Clean Energy Fund</b></td></tr>                     
+              <tr><td colspan="18" class="parent-fund single-partner"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Clean Energy Fund</td></tr>                     
               <tr class="fund 1 single-partner-fund">
                 <td></td>
                 <td>Active</td>
@@ -211,7 +211,7 @@
 
               <!--MULTI-PARTNER-->
               <tr><td colspan="18" class="fund-type-row"><a href=""><span id="multi-partner" class="glyphicon glyphicon-triangle-right pointer fund-type" aria-hidden="true"></span></a><b>II. Multi-Partner</b></td></tr>   
-              <tr><td colspan="18" class="parent-fund multi-partner"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer multi-partner-pointer" aria-hidden="true"></span></a><b>World Wildlife Fund</b></td></tr>                          
+              <tr><td colspan="18" class="parent-fund multi-partner"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer multi-partner-pointer" aria-hidden="true"></span></a>World Wildlife Fund</td></tr>                          
               <tr class="fund 2 multi-partner-fund">
                 <td></td>
                 <td>Active</td>
@@ -235,7 +235,7 @@
 
               <!--FINANCIAL PARTNERSHIP FACILITY-->
               <tr><td colspan="18" class="fund-type-row"><a href=""><span id="fpf" class="glyphicon glyphicon-triangle-right pointer fund-type" aria-hidden="true"></span></a><b>III. Financial Partnership Facility</b></td></tr>   
-              <tr><td colspan="18" class="parent-fund fpf"><a href=""><span id="3" class="glyphicon glyphicon-triangle-right pointer fpf-pointer" aria-hidden="true"></span></a><b>Carbon Storage Fund</b></td></tr>                          
+              <tr><td colspan="18" class="parent-fund fpf"><a href=""><span id="3" class="glyphicon glyphicon-triangle-right pointer fpf-pointer" aria-hidden="true"></span></a>Carbon Storage Fund</td></tr>                          
               <tr class="fund 3 fpf-fund">
                 <td></td>
                 <td>Active</td>
@@ -258,7 +258,7 @@
               </tr>
               <!--GLOBAL TRUST FUND-->
               <tr><td colspan="18" class="fund-type-row"><a href=""><span id="gtf" class="glyphicon glyphicon-triangle-right pointer fund-type" aria-hidden="true"></span></a><b>IV. Global Trust Fund</b></td></tr>   
-              <tr><td colspan="18" class="parent-fund gtf"><a href=""><span id="4" class="glyphicon glyphicon-triangle-right pointer gtf-pointer" aria-hidden="true"></span></a><b>Clean Energy Financing Partnership Facility</b></td></tr>                          
+              <tr><td colspan="18" class="parent-fund gtf"><a href=""><span id="4" class="glyphicon glyphicon-triangle-right pointer gtf-pointer" aria-hidden="true"></span></a>Clean Energy Financing Partnership Facility</td></tr>                          
               <tr class="fund 4 gtf-fund">
                 <td></td>
                 <td>Active</td>
@@ -333,7 +333,7 @@
           $(this).toggleClass('glyphicon glyphicon-triangle-bottom').toggleClass('glyphicon glyphicon-triangle-right');
           var id = $(this).attr('id');
          
-              $('.'+id).toggle('fast');
+          $('.'+id).toggle('fast');
           //hide fund rows if fund-type row is hidden
           if($(this).hasClass('fund-type')) {
             var parent_fund = '.'+id+"-pointer";

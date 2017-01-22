@@ -196,7 +196,7 @@
       $(document).ready(function() {
         $('#main-table').DataTable( {
             "dom": 'rtip',
-            "ordering": false,
+            "order": [[ 1, "asc" ]],
             "info":     false,
             "pageLength": 5
         } );

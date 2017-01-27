@@ -122,6 +122,7 @@
   color: #ecf0f1;
 }
 
+
 /*Partners*/
 #filter-bar{
 	width: 50%;
@@ -213,6 +214,10 @@ h3 {
 	font-family: Futura, Helvetica, Arial, sans-serif;
 }
 
+.table-title {
+  font-weight: bold;
+}
+
 body {
  	font-family: Futura, Helvetica, Arial, sans-serif;
 }
@@ -221,6 +226,11 @@ body {
 .fright {
   float: right;
 }
+
+.field-name {
+  font-weight: bold;
+}
+
 
 hr{
 	margin-bottom: 5px;

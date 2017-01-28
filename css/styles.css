@@ -248,3 +248,42 @@ hr{
   padding: 0px;
 } 
 
+/*MAP*/
+
+ html, body, #map-canvas {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  z-index:1;
+}
+
+#draggable {
+  z-index:100; 
+  background-color: rgba(200,200,255,.7); 
+  width: 250px;
+  padding: 20px;
+  position:absolute;
+  top:150px;
+  right:75px;
+  cursor: move;
+  border: black 1px solid;
+}
+#radius-label, #opacity-label, #max-label {
+  margin-top: 10px;
+}
+#radius-slider, #opacity-slider, #max-slider {
+  width:200px;
+  margin-top: 10px;
+}
+#project {
+  font-size: 10pt;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#radius-slider .ui-slider-handle, 
+#opacity-slider .ui-slider-handle,
+#max-slider .ui-slider-handle {
+  cursor:pointer;
+} 
+
+

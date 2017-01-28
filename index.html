@@ -121,7 +121,6 @@
   <script>
     var map, pointarray, heatmap;
     var csv = [];
-    // http://stackoverflow.com/a/2901298/562440
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
@@ -155,16 +154,10 @@
 
               var image = {
                   url: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Square.gif',
-                  // This marker is 20 pixels wide by 32 pixels high.
                     size: new google.maps.Size(32, 32),
-                    // The origin for this image is (0, 0).
                     origin: new google.maps.Point(0, 0),
-                    // The anchor for this image is the base of the flagpole at (0, 32).
                     anchor: new google.maps.Point(16, 16)
               };
-              // Shapes define the clickable region of the icon. The type defines an HTML
-              // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-              // The final coordinate closes the poly by connecting to the first coordinate.
               var shape = {
                 coords: [32, 1, 1, 20, 18, 20, 18, 32],
                 type: 'poly'

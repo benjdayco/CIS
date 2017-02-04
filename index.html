@@ -23,6 +23,22 @@
 
     <!--CIS stylesheet-->
     <link rel="stylesheet" href="css/styles.css">
+
+    <!--override tab-panel css to have partner map appear on 2nd tab-->
+    <style type="text/css">
+    
+      .tab-pane {
+        display: block !important;
+        position: fixed;
+        right: -9999px;
+        width: 100%;
+      }
+      .tab-pane.active {
+        position: relative;
+        left: 0;
+
+      }
+    </style>
   </head>
 
   <body>
@@ -67,24 +83,36 @@
 
   <!--MAIN BODY-->
  <!-- here goes the map -->
-    <div id="map-canvas"> </div>
+   <div class="panel panel-default map-container">
+      <div class="panel-body map-container">
+        <div class="tab-container map-container">
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#dmcs">DMCs</a></li>
+            <li><a data-toggle="tab" href="#partners">Partners</a></li>
+          </ul>
+          <div class="tab-content map-container" style="height: 90%;">
+            <div id="dmcs" class="tab-pane fade in active map-container">
+              <div id="map-canvas"> </div>
+              <!-- the draggable chart -->
+              <div id="dmc-chart" class="draggable">
+                <canvas id="dmcChart" width="500" height="180"></canvas> 
+              </div>      
+            </div>
 
-    <!-- the draggable input and display controls -->
-    <div id="draggable">
-      <label>Number of Projects</label>
-      <div id="radius-label">radius: 20</div>
-      <div id="radius-slider"></div>
-
-      <div id="opacity-label">opacity: 0.5</div>
-      <div id="opacity-slider"></div>
-
-      <div id="max-label">max: -</div>
-      <div id="max-slider"></div>
+             <div id="partners"  class="tab-pane fade map-container">
+                <div id="map-canvas-partners"> </div>
+                 <!-- the draggable chart -->
+                <div id="partner-chart" class="draggable">
+                  <canvas id="partnerChart" width="500" height="180"></canvas> 
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <hr>
   <!--END OF MAIN BODY-->
-  
+  <hr>
   <!--FOOTER-->
   <footer>
     <div class="container">
@@ -115,25 +143,91 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiCo59iNzTIFXLlmre8HpZ48JhD5eYfU&v=3.exp&libraries=visualization"></script>
 
   <script src="js/jquery.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/Chart.min.js"></script>
+  <link rel="stylesheet" href="css/jquery-ui.css">
 
   <script>
-    var map, pointarray, heatmap;
+
+    var dmcCtx = document.getElementById("dmcChart").getContext("2d");
+    var dmcChartData = {
+      labels: ["2011", "2012", "2013", "2014", "2015", "2016"],
+      datasets: [{
+        label: "TA",
+        backgroundColor: "blue",
+        data: [120,213,345,234,231,100]
+      }, {
+        label: "Loans",
+        backgroundColor: "red",
+        data: [213,345,212,111,56,189]
+      }]
+    };
+
+    var dmcBarChart = new Chart(dmcCtx, {
+      type: 'bar',
+      data: dmcChartData,
+      options: {
+        barValueSpacing: 20,
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: 0,
+            }
+          }]
+        }
+      }
+    });
+
+    var partnerCtx = document.getElementById("partnerChart").getContext("2d");
+    var partnerChartData = {
+      labels: ["2011", "2012", "2013", "2014", "2015", "2016"],
+      datasets: [{
+        label: "Trust Funds",
+        backgroundColor: "blue",
+        data: [120,213,205,234,50,200]
+      }, {
+        label: "Project Specific",
+        backgroundColor: "red",
+        data: [213,190,160,111,100,189]
+      }]
+    };
+
+    var partnerBarChart = new Chart(partnerCtx, {
+      type: 'bar',
+      data: partnerChartData,
+      options: {
+        barValueSpacing: 20,
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: 0,
+            }
+          }]
+        }
+      }
+    });
+
+    
+
+    var dmcMap, partnerMap, dmcHeatMap, partnerHeatMap, pointarray, heatmap;
     var csv = [];
+    var dmcMarkerArray = [];
+    var partnerMarkerArray = [];
+    var dmcWindowArray = [];
+    var partnerWindowArray = [];
+          
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-    function loadData() {
+    function loadData(map, data,heatmap, markerArray, infowindowArray,mapType) {
     
-     var data = "\"weight\",\"lat\",\"lon\",\"cnt\"\n167,34.543896,69.160652,AFG\n44,40.1772,44.50349,ARM\n63,40.409264,49.867092,AZE\n768,23.728783,90.393791,BAN\n197,27.4728,89.6393,BHU\n2,4.5353,114.7277,BRU\n400,12.5657,104.991,CAM\n57,21.2367,159.7777,COO\n117,17.7134,178.065,FIJ\n67,7.4256,150.5508,FSM\n47,41.716667,44.783333,GEO\n5,22.3964,114.1095,HKG\n644,20.5937,78.9629,IND\n952,0.7893,113.9213,INO\n117,43.238949,76.889709,KAZ\n176,41.2044,74.7661,KGZ\n59,3.3704,168.734,KIR\n112,35.9078,127.7669,KOR\n459,19.8563,102.4955,LAO\n170,4.2105,101.9758,MAL\n99,3.2028,73.2207,MLD\n328,46.8625,103.8467,MON\n153,21.9162,95.956,MYA\n22,0.5228,166.9315,NAU\n605,28.3949,84.124,NEP\n756,30.3753,69.3451,PAK\n13,7.515,134.5825,PAL\n685,12.8797,121.774,PHI\n268,9.4780,147.1507,PNG\n1169,35.8617,104.1954,PRC\n77,7.1315,171.1845,RMI\n162,13.759,172.1046,SAM\n17,1.3521,103.8198,SIN\n132,9.6457,160.1562,SOL\n516,7.8731,80.7718,SRI\n154,38.861,71.2761,TAJ\n14,23.6978,120.9605,TAP\n279,15.87,100.9925,THA\n74,8.8742,125.7275,TIM\n9,38.9697,59.5563,TKM\n100,21.179,175.1982,TON\n36,7.1095,177.6493,TUV\n187,41.3775,64.5853,UZB\n94,15.3767,166.9592,VAN\n585,14.0583,108.2772,VIE"
       Papa.parse(data, {
         header: true,
         dynamicTyping: true,
         complete: function(results) {
           csv = [];
-          markerArray = [];
-          var infoWindow = new google.maps.InfoWindow(),marker, i;
+         
         
           if(results.meta.fields.indexOf("weight") == -1) {
             for(idx in results["data"]) {
@@ -148,10 +242,23 @@
               max = Math.max(max, row["weight"]);
 
               var newLocation = new google.maps.LatLng(row["lat"], row["lon"]);
-              
-              //Generate info windows
-              content = row["cnt"] +'-'+row["weight"]+' projects'; 
 
+              var content;
+
+              if (mapType == "dmc"){
+                  content = '<b>'+row["cnt"] +'</b> projects<br>'
+                  +'<b>Grants: </b>'+row["grnt"]
+                  +'<br><b>Loans: </b>'+row["ln"]
+                  +'<br><b>TAs: </b>'+row["ta"]
+                  +'<br><b>Total: </b>'+row["weight"]; 
+
+              }else{
+                 content = '<b>'+row["cnt"] +'</b> contributions<br>'
+                  +'<b>Trust Funds: </b>'+row["trust"]
+                  +'<br><b>Project Specific: </b>'+row["project"]
+                  +'<br><b>Total: </b>'+row["weight"]; 
+              }
+              
               var image = {
                   url: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Square.gif',
                     size: new google.maps.Size(32, 32),
@@ -163,13 +270,22 @@
                 type: 'poly'
               };
               var marker = new google.maps.Marker({
-              position: newLocation,
-              map: map,
-              icon: image,
-              opacity:0.0,
-              shape: shape,
-              title: content
-            });
+                position: newLocation,
+                map: map,
+                url: 'country.html',
+                icon: image,
+                opacity:0.0,
+                shape: shape
+              });
+
+              markerArray.push(marker);
+
+             var infowindow =  new google.maps.InfoWindow({
+              content: content,
+            
+              });
+
+             infowindowArray.push(infowindow);
 
               //push into csv
               csv.push({
@@ -177,18 +293,40 @@
                 weight: row["weight"],
 
               });
-
-            
-            }
-
-            $("#max-label").html("max: "+numberWithCommas(max));
-            $("#max-slider").slider("option","max",max);
-            $("#max-slider").slider("option","value",max);
           }
+
+            //$("#max-label").html("max: "+numberWithCommas(max));
+            //$("#max-slider").slider("option","max",max);
+            //$("#max-slider").slider("option","value",max);
+        }
           
           console.log(results);
+
+          //add event handlers for all the markers
+          for (x in markerArray){
+            //mouseover event to open info window containing data
+            google.maps.event.addListener(markerArray[x], 'mouseover', (function(x) {
+              return function() {
+                infowindowArray[x].open(map,markerArray[x]);
+              }
+            })(x));
+
+            //mouseout to close window
+            google.maps.event.addListener(markerArray[x], 'mouseout', (function(x) {
+              return function() {
+                infowindowArray[x].close();
+              }
+            })(x));
+
+            //add a click event to open a new link
+            google.maps.event.addListener(markerArray[x], 'click', (function(x) {
+              return function() {
+                 window.location.href = markerArray[x].url;         
+              }
+            })(x));
+          }
                     
-          loadHeatmap(csv);
+          loadHeatmap(csv,map,heatmap);
         }
       });
     }
@@ -199,31 +337,54 @@
       center: new google.maps.LatLng(14, 120),
       mapTypeId: google.maps.MapTypeId.MAP
       };
-      map = new google.maps.Map(document.getElementById('map-canvas'),
+      dmcMap = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
 
-      loadData();
+      var mapOptions2 = {
+      zoom: 3,
+      center: new google.maps.LatLng(40, 0),
+      mapTypeId: google.maps.MapTypeId.MAP
+      };
+
+      partnerMap = new google.maps.Map(document.getElementById('map-canvas-partners'),
+        mapOptions2);
+      
+      var dmcData = "\"weight\",\"lat\",\"lon\",\"cnt\",\"grnt\",\"ln\",\"ta\"\n167,34.543896,69.160652,AFG,60,27,87\n44,40.1772,44.50349,ARM,0,18,26\n63,40.409264,49.867092,AZE,3,18,42\n768,23.728783,90.393791,BAN,29,282,457\n197,27.4728,89.6393,BHU,22,34,141\n2,4.5353,114.7277,BRU,0,0,2\n400,12.5657,104.991,CAM,59,106,235\n57,21.2367,159.7777,COO,3,19,35\n117,17.7134,178.065,FIJ,3,25,89\n67,7.4256,150.5508,FSM,1,10,56\n47,41.716667,44.783333,GEO,0,29,18\n5,22.3964,114.1095,HKG,0,5,0\n644,20.5937,78.9629,IND,11,215,417\n952,0.7893,113.9213,INO,26,336,590\n117,43.238949,76.889709,KAZ,0,32,84\n176,41.2044,74.7661,KGZ,35,45,96\n59,3.3704,168.734,KIR,5,8,46\n112,35.9078,127.7669,KOR,0,82,30\n459,19.8563,102.4955,LAO,54,106,299\n170,4.2105,101.9758,MAL,0,77,93\n99,3.2028,73.2207,MLD,7,22,70\n328,46.8625,103.8467,MON,40,64,224\n153,21.9162,95.956,MYA,7,49,97\n22,0.5228,166.9315,NAU,7,1,14\n605,28.3949,84.124,NEP,65,163,377\n756,30.3753,69.3451,PAK,17,338,401\n13,7.515,134.5825,PAL,1,6,6\n685,12.8797,121.774,PHI,26,226,433\n268,9.4780,147.1507,PNG,16,88,164\n1169,35.8617,104.1954,PRC,22,236,911\n77,7.1315,171.1845,RMI,6,14,57\n162,13.759,172.1046,SAM,18,46,98\n17,1.3521,103.8198,SIN,0,15,2\n132,9.6457,160.1562,SOL,27,25,80\n516,7.8731,80.7718,SRI,27,203,286\n154,38.861,71.2761,TAJ,34,31,89\n14,23.6978,120.9605,TAP,0,13,1\n279,15.87,100.9925,THA,3,90,186\n74,8.8742,125.7275,TIM,8,14,52\n9,38.9697,59.5563,TKM,0,1,8\n100,21.179,175.1982,TON,15,19,66\n36,7.1095,177.6493,TUV,7,3,26\n187,41.3775,64.5853,UZB,5,66,116\n94,15.3767,166.9592,VAN,11,16,67\n585,14.0583,108.2772,VIE,34,178,373"
+
+
+      var partnerData = "\"weight\",\"lat\",\"lon\",\"cnt\",\"trust\",\"project\"\n445,38.9072,-77.0369,United States,200,245\n140,51.533434,-0.134593,United Kingdom,100,40\n245,45.293243,-75.767457,Canada,100,145\n140,48.866905,2.350294,France,100,40\n500,35.718745,139.651290,Japan,300,200\n100,-35.280323,149.127526,Australia,65,35\n100,59.916505,10.748030,Norway,65,35\n90,50.702713,4.452818,Belgium,55,35\n100,61.590296,18.443049,Sweden,65,35\n300,51.517855,10.448415,Germany,200,100"
+      
+
+      loadData(partnerMap,partnerData,partnerHeatMap,partnerMarkerArray,partnerWindowArray,'partner');
+      loadData(dmcMap,dmcData,dmcHeatMap,dmcMarkerArray,dmcWindowArray,'dmc');
     }
     
-    function loadHeatmap(csv) {
+    function loadHeatmap(csv, map,heatmap) {
       var pointArray = new google.maps.MVCArray(csv);
       if(heatmap) heatmap.setMap(null);
       
       heatmap = new google.maps.visualization.HeatmapLayer({
         data: pointArray,
-        radius: $("#radius-slider").slider("value"),
-        opacity: $("#opacity-slider").slider("value")
+        dissipating: false,
+        radius: 2.5,
+        opacity: 50
       });
       
-      heatmap.setMap(map);
+      heatmap.setMap(map); 
     }
+
+
     
     $(document).ready(function(){
       
       google.maps.event.addDomListener(window, 'load', initialize);
       
       $(function() {
-        $( "#draggable" ).draggable();
+        $( "#dmc-chart" ).draggable();
+      });
+
+      $(function() {
+        $( "#partner-chart" ).draggable();
       });
       
       $(function() {

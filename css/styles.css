@@ -178,20 +178,37 @@
 
 /*Cofinance Projects*/
 
-#cofinance-filter{
+#cofinance-filter {
   padding-top: 10px;
   width: 65%;
 }
 
-.financing-information-type th{
+.financing-information-type th {
   border: none;
   border-collapse: collapse;
 
 }
 
-.financing-information{
+.financing-information {
   background-color: #F9F9F9;
 }
+
+.agreement-milestones {
+  width: 60%;
+
+}
+
+.agreement-contribution {
+  width: 60%;
+
+}
+
+.agreement-conditions {
+  width: 30%;
+
+}
+
+
 
 /*footer*/
 

@@ -56,7 +56,7 @@
             <li><a href="index.html">Home Dashboard <span class="sr-only">(current)</span></a></li>
             <li><a href="trust-funds-home.html">Trust Funds</a></li>
 
-            <li><a href="cofinance-projects-home.html">Project Specific Cofinancing </a></li>  
+            <li><a href="cofinance-projects-home.html">Confinanced Projects</a></li>  
             <li class="active"><a href="partners.html">Partners</a></li>  
             <li><a href="#">About This Website</a></li>  
             <li><a href="#">Contact Us</a></li>  
@@ -70,7 +70,7 @@
     <div class="container">
       <!--SEARCH BAR-->
       <div class="row">
-        <div class="col-md-8"><h3 class="torange">Partners</h3></div>
+        <div class="col-md-8"><h3 class="torange">Partner Contributions from France</h3></div>
          <div id="custom-search-input">
           <div class="input-group col-md-4">
             <input type="text" class="  search-query form-control" placeholder="Search" />
@@ -85,8 +85,69 @@
       <!--END OF SEARCH BAR-->     
       <div class="panel panel-default">
         <div class="panel-body">
-       
-         <h3>CONTENT HERE</h3>
+          <div class="panel panel-default" id="filter-bar">
+            <div class="panel-body">
+              <span class="label label-default input-label">List by Type</span>
+              <select id="partner-type-select">
+                <option value="">All</option>
+                <option value="Bilateral-Country">Bilateral-Country</option>
+                <option value="Multilateral-Donor">Multilateral-Donor</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Private Non-profit">Private Non-profit</option>
+              </select>
+            </div>
+          </div>
+
+          <table id="main-table" class="table table-striped" cellspacing="0" width="100%">
+            <caption>Click on the Partner Name for details, including fund contributions</caption>
+            <thead>
+              <tr>
+                <th>Partner Type</th>
+                <th>Partner Name</th>
+                <th>Agency/Ministry/Embassy</th>
+                <th>Total Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bilateral-Country</td>
+                <td><a href="partners_detail.html">Luxemburg</a></td>
+                <td>Ministry of Finance</td>
+                <td>$320,800</td>
+              </tr>
+              <tr>
+                <td>Bilateral-Country</td>
+                <td><a href="partners_detail.html">Luxemburg</a></td>
+                <td>Ministry of Finance</td>
+                <td>$320,800</td>
+              </tr>
+              <tr>
+                <td>Commercial</td>
+                <td><a href="partners_detail.html">Luxemburg</a></td>
+                <td>Ministry of Finance</td>
+                <td>$320,800</td>
+              </tr>
+              <tr>
+                <td>Bilateral-Country</td>
+                <td><a href="partners_detail.html">Luxemburg</a></td>
+                <td>Ministry of Finance</td>
+                <td>$320,800</td>
+              </tr>
+              <tr>
+                <td>Multilateral-Donor</td>
+                <td><a href="partners_detail.html">Luxemburg</a></td>
+                <td>Ministry of Finance</td>
+                <td>$320,800</td>
+              </tr>
+              <tr>
+                <td>Bilateral-Country</td>
+                <td><a href="partners_detail.html">Luxemburg</a></td>
+                <td>Ministry of Finance</td>
+                <td>$320,800</td>
+              </tr>
+
+            </tbody>
+            </table>
         </div>
       </div>
 
@@ -130,7 +191,27 @@
     <script type="text/javascript" language="javascript" src="js/dataTables.bootstrap.min.js">
     </script>
     <!-- Can place script tags with JavaScript files here -->
-   
+    <script type="text/javascript" class="init">
+    
+      $(document).ready(function() {
+        $('#main-table').DataTable( {
+            "dom": 'rtip',
+            "order": [[ 1, "asc" ]],
+            "info":     false,
+            "pageLength": 5
+        } );
+        //redraw datatable when user selects a partner type
+        var table = $('#main-table').DataTable();
+        $('#partner-type-select').change( function() {
+            table
+              .columns( 0 )
+              .search( this.value )
+              .draw();
+        } );
+
+      } );
+    </script>
+     
 
   </body>
 </html>

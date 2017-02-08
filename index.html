@@ -244,6 +244,7 @@
               var newLocation = new google.maps.LatLng(row["lat"], row["lon"]);
 
               var content;
+              var link;
 
               if (mapType == "dmc"){
                   content = '<b>'+row["cnt"] +'</b> projects<br>'
@@ -251,12 +252,14 @@
                   +'<br><b>Loans: </b>'+row["ln"]
                   +'<br><b>TAs: </b>'+row["ta"]
                   +'<br><b>Total: </b>'+row["weight"]; 
+                  link = 'dmc.html';
 
               }else{
                  content = '<b>'+row["cnt"] +'</b> contributions<br>'
                   +'<b>Trust Funds: </b>'+row["trust"]
                   +'<br><b>Project Specific: </b>'+row["project"]
                   +'<br><b>Total: </b>'+row["weight"]; 
+                  link = 'country.html';
               }
               
               var image = {
@@ -269,10 +272,11 @@
                 coords: [32, 1, 1, 20, 18, 20, 18, 32],
                 type: 'poly'
               };
+              
               var marker = new google.maps.Marker({
                 position: newLocation,
                 map: map,
-                url: 'country.html',
+                url: link,
                 icon: image,
                 opacity:0.0,
                 shape: shape

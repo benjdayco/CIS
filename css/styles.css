@@ -290,8 +290,8 @@ hr{
 }
 
 .draggable {
-  z-index:100; 
-  background-color: rgba(200,200,255,.7); 
+  z-index:1000; 
+  background-color: rgba(200,200,255,.9); 
   width: 550px;
   height: 200px;
   padding: 20px;

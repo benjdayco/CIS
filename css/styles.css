@@ -149,6 +149,18 @@
 	background-color:#E9532B;
 }
 
+#dmc-loans-table thead tr{
+  background-color:#E9532B;
+}
+
+#dmc-grants-table thead tr{
+  background-color:#007DB7;
+}
+
+#dmc-tas-table thead tr{
+  background-color:#fdb515;
+}
+
 
 .partner-field-name {
   font-weight: bold;

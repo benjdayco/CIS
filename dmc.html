@@ -88,8 +88,9 @@
           <div class="tab-container">
             <ul class="nav nav-tabs">
               <li class="active"><a data-toggle="tab" href="#summary">Summary</a></li>
-              <li><a data-toggle="tab" href="#trust-funds">Trust Funds</a></li>
-              <li><a data-toggle="tab" href="#project-specific">Project Specific</a></li>
+              <li><a data-toggle="tab" href="#trust-funds">Loans</a></li>
+              <li><a data-toggle="tab" href="#project-specific">Grants</a></li>
+              <li><a data-toggle="tab" href="#project-specific">TAs</a></li>
             </ul>
             <div class="tab-content">
               <div id="summary" class="tab-pane fade in active">
@@ -108,39 +109,46 @@
                   <div class="col-md-6">
                     <!--SUMMARY TABLES HERE-->
                     <div class="row">
-                      <table id="trust-funds-table" class="table summary-table">
+                      <table id="dmc-loans-table" class="table summary-table">
                         <thead>
                           <tr class="twhite">
-                            <td></td>
                             <td>No. of Projects</td>
                             <td>Total Approved Amount</td>
                             <td>Total Disbursed Amount</td>
-                            <td>Total Fee Charged</td>
                           </tr>
                         </thead>
                         <tbody>
-                         <tr><td>Loans</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>
-                         <tr><td>TAs</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>
-                         <tr><td>Grants</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>                         
+                         <tr><td>8</td><td>$22 million</td><td>$900,000</td></tr>                         
                         </tbody>
                       </table>
                     </div>
-                     <div class="row">
-                      <table id="project-specific-table" class="table summary-table">
+
+                    <div class="row">
+                      <table id="dmc-grants-table" class="table summary-table">
                         <thead>
                           <tr class="twhite">
-                            <td></td>
                             <td>No. of Projects</td>
                             <td>Total Approved Amount</td>
                             <td>Total Disbursed Amount</td>
-                            <td>Total Fee Charged</td>
                           </tr>
                         </thead>
                         <tbody>
-                         <tr><td>Loans</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>
-                         <tr><td>TAs</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>
-                         <tr><td>Grants</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>
-                         
+                         <tr><td>8</td><td>$22 million</td><td>$900,000</td></tr>                         
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="row">
+                      <table id="dmc-tas-table" class="table summary-table">
+                        <thead>
+                          <tr class="twhite">
+                            <td>No. of Projects</td>
+                            <td>Total Approved Amount</td>
+                            <td>Total Disbursed Amount</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         <tr><td>8</td><td>$22 million</td><td>$900,000</td></tr>                         
                         </tbody>
                       </table>
                     </div>
@@ -282,19 +290,22 @@
     //Dummy data for chart
     var data = {
       labels: [
-          "Trust Funds",
-          "Project Specific"
+          "Loans",
+          "Grants",
+          "TAs"
       ],
       datasets: [
           {
-            data: [45, 25],
+            data: [50, 25, 30],
             backgroundColor: [
                 "#E9532B",
-                "#007DB7"
+                "#007DB7",
+                "#fdb515"
             ],
             hoverBackgroundColor: [
                 "#E9532B",
-                "#007DB7"
+                "#007DB7",
+                "#fdb515"
             ]
           }]
       };

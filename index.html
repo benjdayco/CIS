@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Confinancing Information System</title>
+    <title>Cofinancing Information System</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -47,7 +47,7 @@
     <div class="container-fluid">
       <div class="row header-bar">
           <img src="img/masthead_adblogo.gif" alt="ADB logo">
-          <h2 class="tblue"> Confinancing Information System</h2>
+          <h2 class="tblue">Cofinancing Information System</h2>
       </div>
     </div>
     <!--END OF HEADER BAR-->
@@ -71,7 +71,7 @@
             <li class="active"><a href="">Home Dashboard <span class="sr-only">(current)</span></a></li>
             <li><a href="trust-funds-home.html">Trust Funds</a></li>
 
-            <li><a href="cofinance-projects-home.html">Confinanced Projects</a></li>  
+            <li><a href="cofinance-projects-home.html">Cofinanced Projects</a></li>  
             <li><a href="partners.html">Partners</a></li>  
             <li><a href="#">About This Website</a></li>  
             <li><a href="#">Contact Us</a></li>  
@@ -255,10 +255,9 @@
                   link = 'dmc.html';
 
               }else{
-                 content = '<b>'+row["cnt"] +'</b> contributions<br>'
-                  +'<b>Trust Funds: </b>'+row["trust"]
-                  +'<br><b>Project Specific: </b>'+row["project"]
-                  +'<br><b>Total: </b>'+row["weight"]; 
+                 content = '<b>'+row["cnt"] +':</b> Contribution amount<br>'
+                  +'<b>Trust Funds: </b>$'+row["trust"]+'M'
+                  +'<br><b>Project Specific: </b>$'+row["project"]+ 'M';
                   link = 'country.html';
               }
               

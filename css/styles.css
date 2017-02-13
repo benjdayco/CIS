@@ -294,10 +294,10 @@ hr{
   background-color: rgba(200,200,255,.9); 
   width: 550px;
   height: 200px;
-  padding: 20px;
+  padding: 0px;
   position:absolute;
-  bottom: 100px;
-  right:5px;
+  top: 5px;
+  right:0px;
   cursor: move;
   border: black 1px solid;
 }

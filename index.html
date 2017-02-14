@@ -247,17 +247,19 @@
               var link;
 
               if (mapType == "dmc"){
-                  content = '<b>'+row["cnt"] +'</b> projects<br>'
-                  +'<b>Grants: </b>'+row["grnt"]
-                  +'<br><b>Loans: </b>'+row["ln"]
-                  +'<br><b>TAs: </b>'+row["ta"]
-                  +'<br><b>Total: </b>'+row["weight"]; 
+                  content = '<b>'+ row["cnt"] +' Cofinanced Projects</b><br><br>'
+                  +'<div><table><tr><td></td><td><b>No. of Projects</b></td><td><b>|Total Amount($USD)</b></td>'
+                  +'<tr><td><b>Grants: </b></td><td>'+row["grnt"]+'</td><td>20M</td></tr>'
+                  +'<tr><td><b>Loans: </td></b><td>'+row["ln"]+'</td><td>40M</td></tr>'
+                  +'<tr><td><b>TAs: </b></td><td>'+row["ta"]+'</td><td>27M</td></tr>'
+                  +'<tr><td><b>Total: </b></td><td>'+row["weight"]+'</td><td>97M</td></tr></table></div>'; 
                   link = 'dmc.html';
 
               }else{
-                 content = '<b>'+row["cnt"] +':</b> Contribution amount<br>'
-                  +'<b>Trust Funds: </b>$'+row["trust"]+'M'
-                  +'<br><b>Project Specific: </b>$'+row["project"]+ 'M';
+                 content = '<b>'+row["cnt"] +' Total Contribution Commited($USD)</b><br><br>'
+                  +'<table><tr><td><b>Trust Funds: </b></td><td>$'+row["trust"]+'M</td></tr>'
+                  +'<tr><b><td><b>Project Specific: </b></td><td>$'+row["project"]+ 'M</td></tr>'
+                  +'<tr><b><td><b>Total: </b></td><td>$'+row["project"]+ 'M</td></tr></table>';
                   link = 'country.html';
               }
               

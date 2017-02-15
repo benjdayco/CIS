@@ -283,6 +283,15 @@ hr{
   padding: 0px;
 } 
 
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#DDDDDD;
+  height: 1px;
+}
+
 /*MAP*/
 
 .map-container{
@@ -333,6 +342,13 @@ hr{
 #max-slider .ui-slider-handle {
   cursor:pointer;
 } 
+
+/* CHARTS */
+.charts{
+  padding-top: 40px;
+  padding-right: 5px;
+
+}
 
 
 

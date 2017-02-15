@@ -94,26 +94,30 @@
           <div class="tab-content map-container" style="height: 90%;">
             <div id="dmcs" class="tab-pane fade in active map-container">
               <div id="map-canvas"> </div>
-              <!-- the draggable chart -->
-              <div id="dmc-chart" class="draggable">
-                <canvas id="dmcChart" width="500" height="180"></canvas> 
+              <div id="dmc-chart" class="row charts">
+                <div class="col-md-6"></div>
+                <div class="container col-md-6">
+                  <canvas id="dmcChart" width="600" height="200"></canvas> 
+                </div>
               </div>      
             </div>
 
              <div id="partners"  class="tab-pane fade map-container">
                 <div id="map-canvas-partners"> </div>
-                 <!-- the draggable chart -->
-                <div id="partner-chart" class="draggable">
-                  <canvas id="partnerChart" width="500" height="180"></canvas> 
+                <div class="row charts">
+                  <div class="col-md-6"></div>
+                  <div class="container col-md-6">
+                    <canvas id="partnerChart" width="600" height="180"></canvas> 
+                  </div>
                 </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
+    <hr>
   <!--END OF MAIN BODY-->
-  <hr>
+
   <!--FOOTER-->
   <footer>
     <div class="container">
@@ -155,13 +159,27 @@
     var dmcChartData = {
       labels: ["2011", "2012", "2013", "2014", "2015", "2016"],
       datasets: [{
-        label: "TA",
-        backgroundColor: "#007DB7",
+        type: 'bar',
+        label: "TA (US$ M)",
+        backgroundColor: "rgba(0,153,216,0.8)",
         data: [120,213,345,234,231,100]
       }, {
-        label: "Loans",
-        backgroundColor: "#E9532B",
+        type: 'bar',
+        label: "Loans (US$ M)",
+        backgroundColor: "rgba(233,83,43,0.8)",
         data: [213,345,212,111,56,189]
+      }, {
+        type: 'bar',
+        label: "Grants (US$ M)",
+        backgroundColor: "rgba(245,147,41,0.8)",
+        data: [100,245,312,43,136,89]
+      },{
+        type: 'line',
+        label: "No. of projects",
+        borderColor: "rgba(0,125,183,1)",
+        pointBackgroundColor: "rgba(0,125,183,1)",
+        backgroundColor: "rgba(99,204,236,0.4)",
+        data: [143,89,78,67,120,59]
       }]
     };
 
@@ -169,6 +187,10 @@
       type: 'bar',
       data: dmcChartData,
       options: {
+        title: {
+          display: true,
+          text: 'DMC Chart'
+        },
         barValueSpacing: 20,
         scales: {
           yAxes: [{
@@ -198,6 +220,10 @@
       type: 'bar',
       data: partnerChartData,
       options: {
+        title: {
+          display: true,
+          text: 'Partners Chart'
+        },
         barValueSpacing: 20,
         scales: {
           yAxes: [{
@@ -258,9 +284,9 @@
 
               }else{
                  content = '<b>'+row["cnt"] +' Total Contribution Commited($USD)</b><br><br>'
-                  +'<table><tr><td><b>Trust Funds: </b></td><td>$'+row["trust"]+'M</td></tr>'
+                  +'<div><table><tr><td><b>Trust Funds: </b></td><td>$'+row["trust"]+'M</td></tr>'
                   +'<tr><b><td><b>Project Specific: </b></td><td>$'+row["project"]+ 'M</td></tr>'
-                  +'<tr><b><td><b>Total: </b></td><td>$'+row["project"]+ 'M</td></tr></table>';
+                  +'<tr><b><td><b>Total: </b></td><td>$'+row["project"]+ 'M</td></tr></table></div>';
                   link = 'country.html';
               }
               
@@ -384,53 +410,6 @@
     $(document).ready(function(){
       
       google.maps.event.addDomListener(window, 'load', initialize);
-      
-      $(function() {
-        $( "#dmc-chart" ).draggable();
-      });
-
-      $(function() {
-        $( "#partner-chart" ).draggable();
-      });
-      
-      $(function() {
-        $( "#radius-slider" ).slider({
-          orientation: "horizontal",
-          range: "min",
-          min: 1,
-          max: 50,
-          value: 20,
-          slide: function(event, ui) {
-            $("#radius-label").html("radius: " + ui.value);
-            if(heatmap == null) return;
-            heatmap.set('radius', ui.value);
-          }
-        });
-        $( "#opacity-slider" ).slider({
-          orientation: "horizontal",
-          range: "min",
-          min: 0,
-          max: 100,
-          value: 50,
-          slide: function(event, ui) {
-            $("#opacity-label").html("opacity: " + ui.value/100);
-            if(heatmap == null) return;
-            heatmap.set('opacity', ui.value/100);
-          }
-        });
-        $( "#max-slider" ).slider({
-          orientation: "horizontal",
-          range: "min",
-          min: 0,
-          max: 1,
-          value: 0,
-          slide: function(event, ui) {
-            $("#max-label").html("max: " + numberWithCommas(ui.value));
-            if(heatmap == null) return;
-            heatmap.set('maxIntensity', ui.value);
-          }
-        });
-      });
        
     });
  

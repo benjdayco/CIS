@@ -68,6 +68,7 @@
 
   <!--MAIN BODY-->
     <div class="container">
+    
       <!--SEARCH BAR-->
       <div class="row">
         <div class="col-md-8"><h3 class="torange">Cofinanced Projects by DMC</h3></div>
@@ -82,69 +83,71 @@
           </div>
         </div> 
       </div>
-      <!--END OF SEARCH BAR-->     
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="panel panel-default" id="filter-bar">
-            <div class="panel-body">
-              <span class="label label-default input-label">List by Type</span>
-              <select id="partner-type-select">
-                <option value="">All</option>
-                <option value="Bilateral-Country">Bilateral-Country</option>
-                <option value="Multilateral-Donor">Multilateral-Donor</option>
-                <option value="Commercial">Commercial</option>
-                <option value="Private Non-profit">Private Non-profit</option>
-              </select>
-            </div>
-          </div>
 
+       <div class="panel panel-default">
+        
           <table id="main-table" class="table table-striped" cellspacing="0" width="100%">
-            <caption>Click on the Partner Name for details, including fund contributions</caption>
-            <thead>
+          <caption>Click on the Country Name for details</caption>        
+
+          <thead>
               <tr>
-                <th>Partner Type</th>
-                <th>Partner Name</th>
-                <th>Agency/Ministry/Embassy</th>
-                <th>Total Contribution</th>
+                <th>Country Name</th>
+                <th>Number of Projects</th>
+                <th>Total Amount ($USD)</th>
               </tr>
             </thead>
+
             <tbody>
+              
               <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners_detail.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+                
+                <td><a href="country_detail.html">Afghanistan</a></td>
+                <td>11</td>
+                <td>$452.56M</td>
+
               </tr>
+
               <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners_detail.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+                
+                <td><a href="country_detail.html">Armenia</a></td>
+                <td>4</td>
+                <td>$319.93M</td>
+
               </tr>
+
               <tr>
-                <td>Commercial</td>
-                <td><a href="partners_detail.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+
+                <td><a href="country_detail.html">Azerbijan</a></td>
+                <td>3</td>
+                <td>$658.49M</td>
+
               </tr>
+
               <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners_detail.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+
+                <td><a href="country_detail.html">Bangladesh</a></td>
+                <td>27</td>
+                <td>$4,906.82M</td>
+
               </tr>
+
               <tr>
-                <td>Multilateral-Donor</td>
-                <td><a href="partners_detail.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+
+                <td><a href="country_detail.html">Bhutan</a></td>
+                <td>3</td>
+                <td>$63.82M</td>
+
               </tr>
+
               <tr>
-                <td>Bilateral-Country</td>
-                <td><a href="partners_detail.html">Luxemburg</a></td>
-                <td>Ministry of Finance</td>
-                <td>$320,800</td>
+
+                <td><a href="country_detail.html">Cambodia</a></td>
+                <td>18</td>
+                <td>$288.62M</td>
+
               </tr>
+
+
 
             </tbody>
             </table>
@@ -196,7 +199,7 @@
       $(document).ready(function() {
         $('#main-table').DataTable( {
             "dom": 'rtip',
-            "order": [[ 1, "asc" ]],
+            "order": [[ 0, "asc" ]],
             "info":     false,
             "pageLength": 5
         } );

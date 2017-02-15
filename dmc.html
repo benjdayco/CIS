@@ -88,8 +88,9 @@
           <div class="tab-container">
             <ul class="nav nav-tabs">
               <li class="active"><a data-toggle="tab" href="#summary">Summary</a></li>
-              <li><a data-toggle="tab" href="#trust-funds">Trust Funds</a></li>
-              <li><a data-toggle="tab" href="#project-specific">Project Specific</a></li>
+              <li><a data-toggle="tab" href="#trust-funds">Loans</a></li>
+              <li><a data-toggle="tab" href="#project-specific">Grants</a></li>
+              <li><a data-toggle="tab" href="#ta">TAs</a></li>
             </ul>
             <div class="tab-content">
               <div id="summary" class="tab-pane fade in active">
@@ -108,39 +109,46 @@
                   <div class="col-md-6">
                     <!--SUMMARY TABLES HERE-->
                     <div class="row">
-                      <table id="trust-funds-table" class="table summary-table">
+                      <table id="dmc-loans-table" class="table summary-table">
                         <thead>
                           <tr class="twhite">
-                            <td></td>
                             <td>No. of Projects</td>
                             <td>Total Approved Amount</td>
                             <td>Total Disbursed Amount</td>
-                            <td>Total Fee Charged</td>
                           </tr>
                         </thead>
                         <tbody>
-                         <tr><td>Loans</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>
-                         <tr><td>TAs</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>
-                         <tr><td>Grants</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>                         
+                         <tr><td>8</td><td>$22 million</td><td>$900,000</td></tr>                         
                         </tbody>
                       </table>
                     </div>
-                     <div class="row">
-                      <table id="project-specific-table" class="table summary-table">
+
+                    <div class="row">
+                      <table id="dmc-grants-table" class="table summary-table">
                         <thead>
                           <tr class="twhite">
-                            <td></td>
                             <td>No. of Projects</td>
                             <td>Total Approved Amount</td>
                             <td>Total Disbursed Amount</td>
-                            <td>Total Fee Charged</td>
                           </tr>
                         </thead>
                         <tbody>
-                         <tr><td>Loans</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>
-                         <tr><td>TAs</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>
-                         <tr><td>Grants</td><td>8</td><td>$22 million</td><td>$900,000</td><td>$900,000</td></tr>
-                         
+                         <tr><td>8</td><td>$22 million</td><td>$900,000</td></tr>                         
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="row">
+                      <table id="dmc-tas-table" class="table summary-table">
+                        <thead>
+                          <tr class="twhite">
+                            <td>No. of Projects</td>
+                            <td>Total Approved Amount</td>
+                            <td>Total Disbursed Amount</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         <tr><td>8</td><td>$22 million</td><td>$900,000</td></tr>                         
                         </tbody>
                       </table>
                     </div>
@@ -148,93 +156,361 @@
 
                 </div>
               </div>
+
+              <!-- Loans Tab End -->
               <div id="trust-funds" class="tab-pane fade">
-                <br>
-                <table class="table table-striped table-bordered half-width">
-                  <tbody>
-                    <tr><td class="col-md-4 field-name">Partner Type</td><td class="col-md-8">Bilateral-Country</td></tr>
-                    <tr><td class="col-md-4 field-name">Agency/Ministry/Embassy</td><td class="col-md-8">Luxemburg</td></tr>
-                    <tr><td class="col-md-4 field-name">Address</td><td class="col-md-8"></td></tr>
-                  </tbody>
-                </table>
-                <h4>Trust Funds</h4>
-                 <table class="table table-striped table-bordered partners-project-list">
-                  <thead>
-                    <tr>
-                      <b>
-                      <td>Status</td>
-                      <td>Fund Name</td>
-                      <td>Est. Date</td>
-                      <td>Total Contributions Commited</td>
-                      <td>Luxembourg Contributions Commited</td>
-                      <td>Number of TA Projects</td>
-                      <td>TA Total Amount</td>
-                      <td>Number of Grant Projects</td>
-                      <td>Grant Total Amount</td>
-                      <td>Number of Loan Projects</td>
-                      <td>Loan Total Amount</td>
-                      </b>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Active</td>
-                      <td><a href="trust-funds.html">Financial Sector Development Partnership Fund</a></td>
-                      <td>13 Aug 2006</td>
-                      <td>$7,465,345.03</td>
-                      <td>$7,465,345.03</td>
-                      <td>18</td>
-                      <td>$7,090,000.00</td>
-                      <td>$0</td>
-                      <td>$0</td>
-                      <td>$0</td>
-                      <td>$0</td>
-                    </tr>
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="panel panel-default">
+                      <div class="panel-body">  
+                        
+                        <form id="radio-form">
+                          <span class="label label-default input-label">Status</span>&nbsp;
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="">All
+                          </label>
+                  
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="Active">Active
+                          </label>
+                  
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="Closed">Closed
+                          </label>
+                   
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="Cancelled">Cancelled
+                          </label>
+                        </form><br>
+              
+                        <div id="cofinance-filter" class="row">
+                        
+                          <div class="col-md-4">
+                            <span class="label label-default input-label">Year</span>
+                            <select id="year-select">
+                              <option value="">All</option>
+                              <option value="2004">2004</option>
+                              <option value="2005">2005</option>
+                              <option value="2006">2006</option>
+                              <option value="2007">2007</option>
+                            </select>
+                          </div>
 
-                    <tr>
-                      <td>Active</td>
-                      <td><a href="trust-funds.html">Financial Sector Development Partnership Fund</a></td>
-                      <td>13 Aug 2006</td>
-                      <td>$7,465,345.03</td>
-                      <td>$7,465,345.03</td>
-                      <td>18</td>
-                      <td>$7,090,000.00</td>
-                      <td>$0</td>
-                      <td>$0</td>
-                      <td>$0</td>
-                      <td>$0</td>
-                    </tr>
+                        </div>
+                      </div>
+                    </div>
 
-                  </tbody>
-                </table>
+                    <table id="main-table" class="table table-striped" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                        <th>Product Type</th>
+                        <th>ADB Approved Number</th>
+                        <th>DMC</th>
+                        <th>Product Name</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <!--Collaborative-->
+                      <tr><td colspan="18" class="parent-fund loan-collaborative"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Collaborative</td></tr>                     
+                      <tr class="fund 1 loan-collaborative-project">
+                        <td>LOAN</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+
+                      <tr class="fund 1 loan-collaborative-project">
+                        <td>LOAN</td>loan-
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                   loan-   </tr>
+
+                      <tr class="fund 1 loan-collaborative-project">
+                        <td>LOAN</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+
+
+                      <tr><td colspan="18" class="parent-fund loan-contractual"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Contractual</td></tr>                     
+                      <tr class="fund 2 loan-contractual-project">
+                        <td>LOAN</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+
+                      <tr class="fund 2 loan-contractual-project">
+                        <td>LOAN</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+
+                      <tr class="fund 2 loan-contractual-project">
+                        <td>LOAN</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+                                
+                    </tbody>
+                  </table>
+                  </div>                           
+                </div>
               </div>
+              <!-- Loans Tab End -->
+
+              <!-- Grants Tab Start-->
               <div id="project-specific" class="tab-pane fade">
-                <br>
-                <table class="table table-striped table-bordered half-width">
-                  <tbody>
-                    <tr><td class="col-md-4 field-name">Partner Type</td><td class="col-md-8">Bilateral-Country</td></tr>
-                    <tr><td class="col-md-4 field-name">Agency/Ministry/Embassy</td><td class="col-md-8">Luxemburg</td></tr>
-                    <tr><td class="col-md-4 field-name">Address</td><td class="col-md-8"></td></tr>
-                  </tbody>
-                </table>
-                <h4>Project Specific</h4>
-                 <table class="table table-striped table-bordered">
-                  <thead>
-                    <tr>
-                      <td>Product Name</td>
-                      <td>Approval Number</td>
-                      <td>Effective Date</td>
-                      <td>Total Contributions Commited</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><td></td><td></td><td></td><td></td></tr>
-                    <tr><td></td><td></td><td></td><td></td></tr>
-                    <tr><td></td><td></td><td></td><td></td></tr>
-                    <tr><td></td><td></td><td></td><td></td></tr>
-                  </tbody>
-                </table>
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="panel panel-default">
+                      <div class="panel-body">  
+                        
+                        <form id="radio-form">
+                          <span class="label label-default input-label">Status</span>&nbsp;
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="">All
+                          </label>
+                  
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="Active">Active
+                          </label>
+                  
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="Closed">Closed
+                          </label>
+                   
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="Cancelled">Cancelled
+                          </label>
+                        </form><br>
+              
+                        <div id="cofinance-filter" class="row">
+                        
+                          <div class="col-md-4">
+                            <span class="label label-default input-label">Year</span>
+                            <select id="year-select">
+                              <option value="">All</option>
+                              <option value="2004">2004</option>
+                              <option value="2005">2005</option>
+                              <option value="2006">2006</option>
+                              <option value="2007">2007</option>
+                            </select>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <table id="main-table" class="table table-striped" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                        <th>Product Type</th>
+                        <th>ADB Approved Number</th>
+                        <th>DMC</th>
+                        <th>Product Name</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <!--Collaborative-->
+                      <tr><td colspan="18" class="parent-fund collaborative"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Collaborative</td></tr>                     
+                      <tr class="fund 1 collaborative-project">
+                        <td>GRANT</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+
+                      <tr class="fund 1 collaborative-project">
+                        <td>GRANT</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+
+                      <tr class="fund 1 collaborative-project">
+                        <td>GRANT</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+
+
+                      <tr><td colspan="18" class="parent-fund contractual"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Contractual</td></tr>                     
+                      <tr class="fund 2 contractual-project">
+                        <td>GRANT</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+
+                      <tr class="fund 2 contractual-project">
+                        <td>GRANT</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+
+                      <tr class="fund 2 contractual-project">
+                        <td>GRANT</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+                                
+                    </tbody>
+                  </table>
+                  </div>                           
+                </div>
+
               </div>
+              <!-- Grants Tab End-->
+
+
+              <!-- TA Tab Start-->
+              <div id="ta" class="tab-pane fade">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="panel panel-default">
+                      <div class="panel-body">  
+                        
+                        <form id="radio-form">
+                          <span class="label label-default input-label">Status</span>&nbsp;
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="">All
+                          </label>
+                  
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="Active">Active
+                          </label>
+                  
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="Closed">Closed
+                          </label>
+                   
+                          <label class="radio-inline">
+                            <input type="radio" name="optradio" value="Cancelled">Cancelled
+                          </label>
+                        </form><br>
+              
+                        <div id="cofinance-filter" class="row">
+                        
+                          <div class="col-md-4">
+                            <span class="label label-default input-label">Year</span>
+                            <select id="year-select">
+                              <option value="">All</option>
+                              <option value="2004">2004</option>
+                              <option value="2005">2005</option>
+                              <option value="2006">2006</option>
+                              <option value="2007">2007</option>
+                            </select>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <table id="main-table" class="table table-striped" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                        <th>Product Type</th>
+                        <th>ADB Approved Number</th>
+                        <th>DMC</th>
+                        <th>Product Name</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody> 
+                      <tr>
+                        <td>TA</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+                      <tr>
+                        <td>TA</td>
+                        <td>0002</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Second Education Project</a></td>
+                        <td>2007</td>
+                        <td>Active</td>
+                      </tr>
+                       <tr>
+                        <td>TA</td>
+                        <td>0003</td>
+                        <td>AFG</td>
+                        <td><a href="cofinance-projects.html">Earthquake and Tsunami Emergency Support</a></td>
+                        <td>2005</td>
+                        <td>Closed</td>
+                      </tr>
+                      <tr>
+                        <td>TA</td>
+                        <td>0004</td>
+                        <td>AFG</td>
+                        <td><a href="cofinance-projects.html">Northeast Community Restoration and Development Project</a></td>
+                        <td>2004</td>
+                        <td>Cancelled</td>
+                      </tr>
+                      <tr>
+                        <td>TA</td>
+                        <td>0005</td>
+                        <td>BAN</td>
+                        <td><a href="cofinance-projects.html">Road Sector Improvement</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr> 
+                    <tr>
+                        <td>TA</td>
+                        <td>0006</td>
+                        <td>BAN</td>
+                        <td><a href="cofinance-projects.html">Second Road Sector Improvement</a></td>
+                        <td>2006</td>
+                        <td>Active</td>
+                      </tr>                                
+                    </tbody>
+                  </table>
+                  </div>                           
+                </div>
+              </div>
+              <!-- TA Tab End-->
+
             </div>
           </div>
         </div>
@@ -282,19 +558,22 @@
     //Dummy data for chart
     var data = {
       labels: [
-          "Trust Funds",
-          "Project Specific"
+          "Loans",
+          "Grants",
+          "TAs"
       ],
       datasets: [
           {
-            data: [45, 25],
+            data: [50, 25, 30],
             backgroundColor: [
                 "#E9532B",
-                "#007DB7"
+                "#007DB7",
+                "#fdb515"
             ],
             hoverBackgroundColor: [
                 "#E9532B",
-                "#007DB7"
+                "#007DB7",
+                "#fdb515"
             ]
           }]
       };
@@ -322,27 +601,39 @@
     </script>
   
     <!-- Can place script tags with JavaScript files here -->
-    <script type="text/javascript" class="init">
-    
-      $(document).ready(function() {
-        $('#main-table').DataTable( {
-            "dom": 'rtip',
-            "ordering": false,
-            "info":     false,
-            "pageLength": 5
-        } );
 
-        //redraw datatable when user selects a partner type
-        var table = $('#main-table').DataTable();
-        $('#partner-type-select').change( function() {
-            table
-              .columns( 0 )
-              .search( this.value )
-              .draw();
-        } );
+    <!--DataTable scripts -->
+    <script type="text/javascript" class="init">
+    $(document).ready(function() {
+     
+        $('.fund').hide();
+
+          //toggle parent-fund or fund rows on click
+        $('.pointer').on('click', function(e){
+          e.preventDefault();
+          $(this).toggleClass('glyphicon glyphicon-triangle-bottom').toggleClass('glyphicon glyphicon-triangle-right');
+          
+          <!--DataTable scripts -->
+      var id = $(this).attr('id');
+         
+          $('.'+id).toggle('fast');
+          //hide fund rows if fund-type row is hidden
+          if($(this).hasClass('fund-type')) {
+            var parent_fund = '.'+id+"-pointer";
+
+            $( parent_fund).removeClass( "glyphicon glyphicon-triangle-bottom" ).addClass( "glyphicon glyphicon-triangle-right" );
+           
+            if ($(parent_fund).is(":visible")) {
+              var fund_class = id+"-project";
+             
+              $("."+fund_class).hide();
+            }
+          } 
+        })
 
       } );
     </script>
-     
+    
+ 
   </body>
 </html>

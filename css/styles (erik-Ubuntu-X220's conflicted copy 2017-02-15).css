@@ -1,0 +1,336 @@
+/*Search*/
+#custom-search-input {
+    margin:0;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+ 
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: white;
+}
+
+.icon-group{
+	padding-left: 30px;
+}
+
+#search-icon{
+	color: #007DB7 ;
+}
+
+.search-query:focus + button {
+    z-index: 3;   
+}
+
+.search-bar{
+	background-color: #007DB7;
+	padding-bottom: 20px;
+	padding-right: 5px;
+}
+
+/*Header*/
+.header-bar{
+	padding-top: 10px;
+	padding-left: 5px;
+}
+.header-bar img {
+  float: left;
+}
+
+.header-bar h2 {
+  position: relative;
+  margin-top: 10px;
+  left: 10px;
+}
+
+/*Nav bar*/
+.navbar-default {
+  background-color: #007db7;
+  border-color: #005683;
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ecf0f1;
+  background-color: #005683;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #ecf0f1;
+  background-color: #005683;
+}
+.navbar-default .navbar-toggle {
+  border-color: #005683;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #005683;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #ecf0f1;
+}
+
+
+/*Partners*/
+#filter-bar{
+	width: 50%;
+}
+#dropdown-label{
+	background-color: #005683;
+	font-size: 101%;
+	margin-right: 20px;
+}
+
+.partner-details{
+	width: 50%;
+}
+
+.summary-table{
+	width: 90%;
+}
+
+#project-specific-table thead tr{
+	background-color:#007DB7;
+}
+
+#trust-funds-table thead tr{
+	background-color:#E9532B;
+}
+
+#dmc-loans-table thead tr{
+  background-color:#E9532B;
+}
+
+#dmc-grants-table thead tr{
+  background-color:#007DB7;
+}
+
+#dmc-tas-table thead tr{
+  background-color:#fdb515;
+}
+
+
+.partner-field-name {
+  font-weight: bold;
+}
+
+.partners-project-list {
+  font-size: 10px;
+}
+
+.partners-project-list thead {
+  font-weight: bold;
+}
+
+
+/* Trust Funds */
+
+#funds-type-radio{
+  padding-bottom: 10px;
+}
+.fund-type-row{
+  background-color: #F9F9F9;
+}
+
+.fund{
+  background-color: #F9F9F9;
+}
+
+/*Cofinance Projects*/
+
+#cofinance-filter {
+  padding-top: 10px;
+  width: 65%;
+}
+
+.financing-information-type th {
+  border: none;
+  border-collapse: collapse;
+
+}
+
+.financing-information {
+  background-color: #F9F9F9;
+}
+
+.agreement-column-2 {
+  width: 60%;
+
+}
+
+.agreement-column-3 {
+  width: 30%;
+
+}
+
+/*footer*/
+
+footer {
+	font-size: 85%;
+}
+footer img{
+	vertical-align: top;
+}
+.left-footer {
+  display: inline-block;
+  float: left;
+  padding: 0px;   
+}
+
+/*Typography*/
+h1,
+h2,
+h3 {
+	font-family: Futura, Helvetica, Arial, sans-serif;
+}
+
+.table-title {
+  font-weight: bold;
+}
+
+body {
+ 	font-family: Futura, Helvetica, Arial, sans-serif;
+}
+
+/*Misc stuff*/
+.fright {
+  float: right;
+}
+
+.field-name {
+  font-weight: bold;
+}
+
+
+hr{
+	margin-bottom: 5px;
+}
+
+.twhite{
+	color: white;
+}
+
+.tblue{
+	color: #007DB7;
+}
+
+.torange{
+	color:#F68029;
+}
+
+.tcenter {
+  text-align: center;
+}
+
+} 
+
+hr{
+  padding: 0px;
+} 
+
+/*MAP*/
+
+.map-container{
+  height: 100%;
+  width: 100%;
+}
+
+ html, body, #map-canvas, #map-canvas-partners {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  z-index:1;
+}
+
+ #map-canvas-partners {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  z-index:5;
+}
+
+.draggable {
+  z-index:1000; 
+  background-color: rgba(200,200,255,.9); 
+  width: 550px;
+  height: 200px;
+  padding: 0px;
+  position:absolute;
+  top: 5px;
+  right:0px;
+  cursor: move;
+  border: black 1px solid;
+}
+#radius-label, #opacity-label, #max-label {
+  margin-top: 10px;
+}
+#radius-slider, #opacity-slider, #max-slider {
+  width:200px;
+  margin-top: 10px;
+}
+#project {
+  font-size: 10pt;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#radius-slider .ui-slider-handle, 
+#opacity-slider .ui-slider-handle,
+#max-slider .ui-slider-handle {
+  cursor:pointer;
+} 
+
+
+
+

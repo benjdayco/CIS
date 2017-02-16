@@ -68,13 +68,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="">Home Dashboard <span class="sr-only">(current)</span></a></li>
-            <li><a href="trust-funds-home.html">Trust Funds</a></li>
-
-            <li><a href="cofinance-projects-home.html">Cofinanced Projects</a></li>  
+            <li class="active"><a href="index.html">Home Dashboard <span class="sr-only">(current)</span></a></li>
             <li><a href="partners.html">Partners</a></li>  
+            <li><a href="trust-funds-home.html">Trust Funds</a></li>
+            <li><a href="dmc_landing.html">DMC</a></li>
+            <li><a href="cofinance-projects-home.html">Confinanced Projects</a></li>  
             <li><a href="#">About This Website</a></li>  
-            <li><a href="#">Contact Us</a></li>  
+            <li><a href="#">Contact Us</a></li>
           </ul> 
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -285,7 +285,8 @@
               }else{
 
               content = '<b>'+row["cnt"] +'Total Contribution Commited($USD)</b><br><br>'
-                  +'<table><tr><td><b>Trust Funds: </b></td><td align="center">$'+row["trust"]+'M</td></tr>'+'<tr><b><td><b>Project Specific: </b></td><td>$'+row["project"]+ 'M</td></tr>'
+                  +'<table><tr><td><b>Trust Funds: </b></td><td align="center">$'+row["trust"]+'M</td></tr>'
+                  +'<tr><b><td><b>Project Specific: </b></td><td>$'+row["project"]+ 'M</td></tr>'
                   +'<tr><b><td><b>Total: </b></td><td>$'+row["project"]+ 'M</td></tr></table></div>';
                   link = 'country.html';
               }

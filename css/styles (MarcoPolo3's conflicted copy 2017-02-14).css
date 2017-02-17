@@ -149,18 +149,6 @@
 	background-color:#E9532B;
 }
 
-#dmc-loans-table thead tr{
-  background-color:#E9532B;
-}
-
-#dmc-grants-table thead tr{
-  background-color:#007DB7;
-}
-
-#dmc-tas-table thead tr{
-  background-color:#fdb515;
-}
-
 
 .partner-field-name {
   font-weight: bold;
@@ -180,17 +168,12 @@
 #funds-type-radio{
   padding-bottom: 10px;
 }
-
 .fund-type-row{
   background-color: #F9F9F9;
 }
 
 .fund{
   background-color: #F9F9F9;
-}
-
-.project-data-table {
-  font-size: 12px;
 }
 
 /*Cofinance Projects*/
@@ -219,8 +202,6 @@
   width: 30%;
 
 }
-
-/*footer*/
 
 /*footer*/
 
@@ -287,15 +268,6 @@ hr{
   padding: 0px;
 } 
 
-hr {
-  border: 0;
-  clear:both;
-  display:block;
-  width: 96%;               
-  background-color:#DDDDDD;
-  height: 1px;
-}
-
 /*MAP*/
 
 .map-container{
@@ -346,13 +318,6 @@ hr {
 #max-slider .ui-slider-handle {
   cursor:pointer;
 } 
-
-/* CHARTS */
-.charts{
-  padding-top: 40px;
-  padding-right: 5px;
-
-}
 
 
 

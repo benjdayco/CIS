@@ -200,6 +200,11 @@
   width: 65%;
 }
 
+#financing-information-table {
+  font-size: 12px
+
+}
+
 .financing-information-type th {
   border: none;
   border-collapse: collapse;

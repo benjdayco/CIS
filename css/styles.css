@@ -161,7 +161,6 @@
   background-color:#fdb515;
 }
 
-
 .partner-field-name {
   font-weight: bold;
 }
@@ -181,6 +180,15 @@
   padding-bottom: 10px;
 }
 
+#trust-funds-list {
+  table-layout: fixed;s
+}
+
+.sector-field {
+  width: 300px
+
+}
+
 .fund-type-row{
   background-color: #F9F9F9;
 }
@@ -192,6 +200,7 @@
 .project-data-table {
   font-size: 12px;
 }
+
 
 /*Cofinance Projects*/
 

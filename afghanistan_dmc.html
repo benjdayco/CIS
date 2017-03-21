@@ -89,8 +89,8 @@
           <div class="tab-container">
             <ul class="nav nav-tabs">
               <li class="active"><a data-toggle="tab" href="#summary">Summary</a></li>
-              <li><a data-toggle="tab" href="#trust-funds">Loans</a></li>
-              <li><a data-toggle="tab" href="#project-specific">Grants</a></li>
+              <li><a data-toggle="tab" href="#loans">Loans</a></li>
+              <li><a data-toggle="tab" href="#grants">Grants</a></li>
               <li><a data-toggle="tab" href="#ta">TAs</a></li>
             </ul>
             <div class="tab-content">
@@ -162,8 +162,8 @@
                 </div>
               </div>
 
-              <!-- Loans Tab End -->
-              <div id="trust-funds" class="tab-pane fade">
+              <!-- Loans Tab Start -->              
+              <div id="loans" class="tab-pane fade">
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <div class="panel panel-default">
@@ -219,8 +219,8 @@
                     <tbody>
 
                       <!--Collaborative-->
-                      <tr><td colspan="18" class="parent-fund loan-collaborative"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Contractual</td></tr>                     
-                      <tr class="fund 1 loan-collaborative-project">
+                      <tr><td colspan="18" class="admin-arrangement loan-collaborative"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer loan-collaborative-pointer" aria-hidden="true"></span></a>Contractual</td></tr>                     
+                      <tr class="project 1 loan-collaborative-project">
                         <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -229,16 +229,16 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="fund 1 loan-collaborative-project">
-                        <td>LOAN</td>loan-
+                      <tr class="project 1 loan-collaborative-project">
+                        <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
                         <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
                         <td>2006</td>
                         <td>Closed</td>
-                   loan-   </tr>
+                     </tr>
 
-                      <tr class="fund 1 loan-collaborative-project">
+                      <tr class="project 1 loan-collaborative-project">
                         <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -248,8 +248,9 @@
                       </tr>
 
 
-                      <tr><td colspan="18" class="parent-fund loan-contractual"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Collaborative</td></tr>                     
-                      <tr class="fund 2 loan-contractual-project">
+                      <!--Contractual-->
+                      <tr><td colspan="18" class="admin-arrangement loan-contractual"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer loan-contractual-pointer" aria-hidden="true"></span></a>Collaborative</td></tr>                     
+                      <tr class="project 2 loan-contractual-project">
                         <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -258,7 +259,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="fund 2 loan-contractual-project">
+                      <tr class="project 2 loan-contractual-project">
                         <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -267,7 +268,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="fund 2 loan-contractual-project">
+                      <tr class="project 2 loan-contractual-project">
                         <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -284,7 +285,7 @@
               <!-- Loans Tab End -->
 
               <!-- Grants Tab Start-->
-              <div id="project-specific" class="tab-pane fade">
+              <div id="grants" class="tab-pane fade">
                 <div class="panel panel-default">
                   <div class="panel-body">
                     <div class="panel panel-default">
@@ -340,8 +341,8 @@
                     <tbody>
 
                       <!--Collaborative-->
-                      <tr><td colspan="18" class="parent-fund collaborative"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Contractual</td></tr>                     
-                      <tr class="fund 1 collaborative-project">
+                      <tr><td colspan="18" class="admin_arrangement collaborative"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer grants-collaborative-pointer" aria-hidden="true"></span></a>Contractual</td></tr>                     
+                      <tr class="project 1 collaborative-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -350,7 +351,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="fund 1 collaborative-project">
+                      <tr class="project 1 collaborative-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -359,7 +360,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="fund 1 collaborative-project">
+                      <tr class="project 1 collaborative-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -369,8 +370,8 @@
                       </tr>
 
 
-                      <tr><td colspan="18" class="parent-fund contractual"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Collaborative</td></tr>                     
-                      <tr class="fund 2 contractual-project">
+                      <tr><td colspan="18" class="admin_arrangement contractual"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer grants-contractual-pointer" aria-hidden="true"></span></a>Collaborative</td></tr>                     
+                      <tr class="project 2 contractual-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -379,7 +380,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="fund 2 contractual-project">
+                      <tr class="project 2 contractual-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -388,7 +389,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="fund 2 contractual-project">
+                      <tr class="project 2 contractual-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -611,9 +612,9 @@
     <script type="text/javascript" class="init">
     $(document).ready(function() {
      
-        $('.fund').hide();
+        $('.project').hide();
 
-          //toggle parent-fund or fund rows on click
+          //toggle rows on click
         $('.pointer').on('click', function(e){
           e.preventDefault();
           $(this).toggleClass('glyphicon glyphicon-triangle-bottom').toggleClass('glyphicon glyphicon-triangle-right');
@@ -624,14 +625,14 @@
           $('.'+id).toggle('fast');
           //hide fund rows if fund-type row is hidden
           if($(this).hasClass('fund-type')) {
-            var parent_fund = '.'+id+"-pointer";
+            var admin_arrangement = '.'+id+"-pointer";
 
-            $( parent_fund).removeClass( "glyphicon glyphicon-triangle-bottom" ).addClass( "glyphicon glyphicon-triangle-right" );
+            $( admin_arrangement).removeClass( "glyphicon glyphicon-triangle-bottom" ).addClass( "glyphicon glyphicon-triangle-right" );
            
-            if ($(parent_fund).is(":visible")) {
-              var fund_class = id+"-project";
+            if ($(admin_arrangement).is(":visible")) {
+              var project_class = id+"-project";
              
-              $("."+fund_class).hide();
+              $("."+project_class).hide();
             }
           } 
         })

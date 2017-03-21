@@ -273,7 +273,7 @@
                       <tr>
                       
                       <tr>
-                        <td width="400"> <b>Cost Balance (as of 31 Dec 2016 )</b></td>
+                        <td width="400"> <b>Cash Balance (as of 31 Dec 2016 )</b></td>
                         <td class="tblue" width="200">USD 324,965,815.36</td>
                       <tr>
 
@@ -540,8 +540,8 @@
                     <tbody>
 
                       <!--Collaborative-->
-                      <tr><td colspan="18" class="parent-fund loan-collaborative"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Fund Manager</td></tr>                     
-                      <tr class="fund 1 loan-collaborative-project">
+                      <tr><td colspan="18" class='contact-type'><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer 1-pointer" aria-hidden="true"></span></a>Fund Manager</td></tr>                     
+                      <tr class="contact 1 fund-manager-contact">
                         <td>xxxx</td>
                         <td>xxxx</td>
                         <td>xxxx</td>
@@ -551,8 +551,8 @@
                         <td>xxxx</td>
                       </tr>
 
-                      <tr><td colspan="18" class="parent-fund loan-contractual"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Focal Contact</td></tr>                     
-                      <tr class="fund 2 loan-contractual-project">
+                      <tr><td colspan="18"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Focal Contact</td></tr>                     
+                      <tr class="contact 2 focal-contact">
                         <td>xxxx</td>
                         <td>xxxx</td>
                         <td>xxxx</td>
@@ -562,8 +562,8 @@
                         <td>xxxx</td>
                       </tr>
 
-                      <tr><td colspan="18" class="parent-fund loan-contractual"><a href=""><span id="3" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Team Member</td></tr>                     
-                      <tr class="fund 3 loan-contractual-project">
+                      <tr><td colspan="18"> <a href=""><span id="3" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Team Member</td></tr>                     
+                      <tr class="contact 3 team-member-contact">
                         <td>xxxx</td>
                         <td>xxxx</td>
                         <td>xxxx</td>
@@ -573,8 +573,8 @@
                         <td>xxxx</td>
                       </tr>
 
-                      <tr><td colspan="18" class="parent-fund loan-contractual"><a href=""><span id="4" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>OCO Contact</td></tr>                     
-                      <tr class="fund 4 loan-contractual-project">
+                      <tr><td colspan="18"><a href=""><span id="4" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>OCO Contact</td></tr>                     
+                      <tr class="contact 4 oco-contact">
                         <td>xxxx</td>
                         <td>xxxx</td>
                         <td>xxxx</td>
@@ -584,8 +584,8 @@
                         <td>xxxx</td>
                       </tr>     
 
-                      <tr><td colspan="18" class="parent-fund loan-contractual"><a href=""><span id="5" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Partner</td></tr>                     
-                      <tr class="fund 5 loan-contractual-project">
+                      <tr><td colspan="18"><a href=""><span id="5" class="glyphicon glyphicon-triangle-right pointer single-partner-pointer" aria-hidden="true"></span></a>Partner</td></tr>                     
+                      <tr class="contact 5 partner-contact">
                         <td>xxxx</td>
                         <td>xxxx</td>
                         <td>xxxx</td>
@@ -728,27 +728,29 @@
     <script type="text/javascript" class="init">
     $(document).ready(function() {
      
-        $('.fund').hide();
+        $('.contact').hide();
 
-          //toggle parent-fund or fund rows on click
+          //toggle contact rows on click
         $('.pointer').on('click', function(e){
           e.preventDefault();
           $(this).toggleClass('glyphicon glyphicon-triangle-bottom').toggleClass('glyphicon glyphicon-triangle-right');
           
-          <!--DataTable scripts -->
-      var id = $(this).attr('id');
+          <!--DataTable scripts 
+          var id = $(this).attr('id');
          
           $('.'+id).toggle('fast');
-          //hide fund rows if fund-type row is hidden
-          if($(this).hasClass('fund-type')) {
-            var parent_fund = '.'+id+"-pointer";
 
-            $( parent_fund).removeClass( "glyphicon glyphicon-triangle-bottom" ).addClass( "glyphicon glyphicon-triangle-right" );
+          //hide contact rows if contact row is hidden
+          if($(this).hasClass('contact-type')) {
+            var contact_row = '.'+id+"-pointer";
+
+            $(contact_row).removeClass( "glyphicon glyphicon-triangle-bottom" ).addClass( "glyphicon glyphicon-triangle-right" );
            
-            if ($(parent_fund).is(":visible")) {
-              var fund_class = id+"-project";
+            if ($(contact_row).is(":visible")) {
+              var contact_type = id+"-project";
              
-              $("."+fund_class).hide();
+              $("."+contact_type).hide();
+
             }
           } 
         })

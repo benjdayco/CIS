@@ -265,12 +265,13 @@
     function loadData(map, data,heatmap, markerArray, infowindowArray,mapType) {
     
       Papa.parse(data, {
+        download: true,
         header: true,
         dynamicTyping: true,
         complete: function(results) {
           csv = [];
-         
         
+         
           if(results.meta.fields.indexOf("weight") == -1) {
             for(idx in results["data"]) {
               var row = results["data"][idx];
@@ -282,7 +283,6 @@
               var row = results["data"][idx];
              
               max = Math.max(max, row["weight"]);
-
               var newLocation = new google.maps.LatLng(row["lat"], row["lon"]);
 
               var content;
@@ -379,6 +379,8 @@
       });
     }
     
+
+     
     function initialize() {
       var mapOptions = {
       zoom: 3,
@@ -397,14 +399,9 @@
       partnerMap = new google.maps.Map(document.getElementById('map-canvas-partners'),
         mapOptions2);
       
-      var dmcData = "\"weight\",\"lat\",\"lon\",\"cnt\",\"grnt\",\"ln\",\"ta\"\n167,34.543896,69.160652,AFG,60,27,87\n44,40.1772,44.50349,ARM,0,18,26\n63,40.409264,49.867092,AZE,3,18,42\n768,23.728783,90.393791,BAN,29,282,457\n197,27.4728,89.6393,BHU,22,34,141\n2,4.5353,114.7277,BRU,0,0,2\n400,12.5657,104.991,CAM,59,106,235\n57,21.2367,159.7777,COO,3,19,35\n117,17.7134,178.065,FIJ,3,25,89\n67,7.4256,150.5508,FSM,1,10,56\n47,41.716667,44.783333,GEO,0,29,18\n5,22.3964,114.1095,HKG,0,5,0\n644,20.5937,78.9629,IND,11,215,417\n952,0.7893,113.9213,INO,26,336,590\n117,43.238949,76.889709,KAZ,0,32,84\n176,41.2044,74.7661,KGZ,35,45,96\n59,3.3704,168.734,KIR,5,8,46\n112,35.9078,127.7669,KOR,0,82,30\n459,19.8563,102.4955,LAO,54,106,299\n170,4.2105,101.9758,MAL,0,77,93\n99,3.2028,73.2207,MLD,7,22,70\n328,46.8625,103.8467,MON,40,64,224\n153,21.9162,95.956,MYA,7,49,97\n22,0.5228,166.9315,NAU,7,1,14\n605,28.3949,84.124,NEP,65,163,377\n756,30.3753,69.3451,PAK,17,338,401\n13,7.515,134.5825,PAL,1,6,6\n685,12.8797,121.774,PHI,26,226,433\n268,9.4780,147.1507,PNG,16,88,164\n1169,35.8617,104.1954,PRC,22,236,911\n77,7.1315,171.1845,RMI,6,14,57\n162,13.759,172.1046,SAM,18,46,98\n17,1.3521,103.8198,SIN,0,15,2\n132,9.6457,160.1562,SOL,27,25,80\n516,7.8731,80.7718,SRI,27,203,286\n154,38.861,71.2761,TAJ,34,31,89\n14,23.6978,120.9605,TAP,0,13,1\n279,15.87,100.9925,THA,3,90,186\n74,8.8742,125.7275,TIM,8,14,52\n9,38.9697,59.5563,TKM,0,1,8\n100,21.179,175.1982,TON,15,19,66\n36,7.1095,177.6493,TUV,7,3,26\n187,41.3775,64.5853,UZB,5,66,116\n94,15.3767,166.9592,VAN,11,16,67\n585,14.0583,108.2772,VIE,34,178,373"
 
-
-      var partnerData = "\"weight\",\"lat\",\"lon\",\"cnt\",\"trust\",\"project\"\n445,38.9072,-77.0369,United States,200,245\n140,51.533434,-0.134593,United Kingdom,100,40\n245,45.293243,-75.767457,Canada,100,145\n140,48.866905,2.350294,France,100,40\n500,35.718745,139.651290,Japan,300,200\n100,-35.280323,149.127526,Australia,65,35\n100,59.916505,10.748030,Norway,65,35\n90,50.702713,4.452818,Belgium,55,35\n100,61.590296,18.443049,Sweden,65,35\n300,51.517855,10.448415,Germany,200,100\n380,39.926963, 116.393300,PRC,230,150\n99,-35.281339,149.128684,Australia,60,33\n42,-41.273191,174.766653,New Zealand,32,10\n58,55.816475,37.563720,Russia,18,40"
-      
-
-      loadData(partnerMap,partnerData,partnerHeatMap,partnerMarkerArray,partnerWindowArray,'partner');
-      loadData(dmcMap,dmcData,dmcHeatMap,dmcMarkerArray,dmcWindowArray,'dmc');
+      loadData(partnerMap,'https://dl.dropboxusercontent.com/s/d6g29t7u0s7unkq/partner.csv?dl=0',partnerHeatMap,partnerMarkerArray,partnerWindowArray,'partner');
+      loadData(dmcMap,'https://dl.dropboxusercontent.com/s/5qrhlte26fvg99e/dmc.csv?dl=0',dmcHeatMap,dmcMarkerArray,dmcWindowArray,'dmc');
     }
     
     function loadHeatmap(csv, map,heatmap) {

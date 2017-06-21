@@ -161,6 +161,11 @@
   background-color:#fdb515;
 }
 
+.partner-psc-table{
+  width: 75%;
+}
+
+
 .partner-field-name {
   font-weight: bold;
 }

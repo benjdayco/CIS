@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Cofinancing Management System</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--Datatables css-->
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css">
+    <!-- Custom styles for this template go here -->
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--CIS stylesheet-->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--override tab-panel css to have partner map appear on 2nd tab-->
+    <style type="text/css">
+    
+      .tab-pane {
+        display: block !important;
+        position: fixed;
+        right: -9999px;
+        width: 100%;
+      }
+      .tab-pane.active {
+        position: relative;
+        left: 0;
+
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!--HEADER BAR-->
+    <div class="container-fluid">
+      <div class="row header-bar">
+          <img src="img/masthead_adblogo.gif" alt="ADB logo">
+          <h2 class="tblue">Cofinancing Management System</h2>
+      </div>
+    </div>
+    <!--END OF HEADER BAR-->
+
+   <!--NAV BAR-->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home Dashboard <span class="sr-only">(current)</span></a></li>
+            <li><a href="partners.html">Partners</a></li>  
+            <li><a href="trust-funds-home.html">Trust Funds</a></li>
+            <li><a href="dmc_landing.html">DMC</a></li>
+            <li><a href="cofinance-projects-home.html">Cofinanced Projects</a></li>  
+            <li><a href="#">About This Website</a></li>  
+            <li><a href="#">Contact Us</a></li>
+          </ul> 
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  <!--END OF NAV BAR-->
+
+  <!--MAIN BODY-->
+ <!-- here goes the map -->
+   <div class="panel panel-default map-container">
+      <div class="panel-body map-container">
+        <div class="tab-container map-container">
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#dmcs">DMCs</a></li>
+            <li><a data-toggle="tab" href="#partners">Partners</a></li>
+          </ul>
+
+          <div class="tab-content map-container" style="height: 90%;">
+            <div id="dmcs" class="tab-pane fade in active map-container">
+              <div id="map-canvas"> </div>
+              <div id="dmc-chart" class="row charts">
+                <div class="container col-md-6">
+                  <canvas id="dmcChart" width="600" height="200"></canvas> 
+                </div>
+                 <div class="col-md-6"></div>
+              </div>      
+            </div>
+
+             <div id="partners"  class="tab-pane fade map-container">
+                <div id="map-canvas-partners"> </div>
+                <div class="row charts">       
+                  <div class="container col-md-6">
+                    <canvas id="partnerChart" width="600" height="200"></canvas> 
+                  </div>
+                  <div class="col-md-6"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <!--END OF MAIN BODY-->
+
+  <!--FOOTER-->
+  <footer>
+    <div class="container">
+      <div class="left-footer">
+        <img src="img/colophon.gif">
+      </div>
+      <div class="fright tbottom">
+       Comments to <a href="mailto:adb@adb.org">adb@adb.org</a> 
+      </div>
+    </div>  
+      <div class="container">
+      <div class="left-footer">
+        <i>Copyright &copy; 2016 Asian Development Bank</i>
+      </div>
+      <div class="fright">
+      <i>Last reviewed  10 Dec 2016</i></a> 
+      </div>
+    </div>  
+  </footer> 
+  <!--END of FOOTER-->
+
+  </body>
+    <!-- All your JavaScript comes now -->
+    <!-- ============================= -->
+  <!--you need this to parse csv-->
+  <script src="js/papaparse.min.js"></script>
+  <!--link to google map api-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiCo59iNzTIFXLlmre8HpZ48JhD5eYfU&v=3.exp&libraries=visualization"></script>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/Chart.min.js"></script>
+  <link rel="stylesheet" href="css/jquery-ui.css">
+
+  <script>
+
+    var dmcCtx = document.getElementById("dmcChart").getContext("2d");
+    var dmcChartData = {
+      labels: ["2011", "2012", "2013", "2014", "2015", "2016"],
+      datasets: [{
+        type: 'bar',
+        yAxisID: "y-axis-0",
+        label: "Loans",
+        backgroundColor: "rgba(233,83,43,0.8)",
+        data: [213,345,212,111,56,189]
+      }, {
+        type: 'bar',
+        yAxisID: "y-axis-0",
+        label: "Grants",
+        backgroundColor: "rgba(245,147,41,0.8)",
+        data: [100,245,312,43,136,89]
+      }, {
+        type: 'bar',
+        yAxisID: "y-axis-0",
+        label: "TA",
+        backgroundColor: "rgba(0,153,216,0.8)",
+        data: [120,213,345,234,231,100]
+      }, {
+        type: 'line',
+        yAxisID: "y-axis-1",
+        fill: false,
+        label: "No. of projects",
+        borderColor: "rgba(128,128,128,1)",
+        pointBackgroundColor: "rgba(128,128,128,1)",
+        backgroundColor : "rgba(128,128,128,1)",
+        data: [143,89,78,67,120,59]
+      }]
+    };
+
+    var dmcBarChart = new Chart(dmcCtx, {
+      type: 'bar',
+      data: dmcChartData,
+      options: {
+        title: {
+          display: true,
+          text: 'Total Number of Cofinanced Projects'
+        },
+        barValueSpacing: 20,
+        scales: {
+          yAxes: [{
+             scaleLabel: {
+              display: true,
+              labelString: 'Amount (US$ M)'
+            },
+            position: "left",
+            "id": "y-axis-0"
+          }, {
+            scaleLabel: {
+              display: true,
+              labelString: 'No. of projects'
+            },
+            position: "right",
+            "id": "y-axis-1"
+          }]
+        }
+      }
+    });
+
+    var partnerCtx = document.getElementById("partnerChart").getContext("2d");
+    var partnerChartData = {
+      labels: ["2011", "2012", "2013", "2014", "2015", "2016"],
+      datasets: [{
+        label: "Trust Funds ($US M)",
+        backgroundColor: "#007DB7",
+        data: [120,213,205,234,50,200]
+      }, {
+        label: "Project Specific ($US M)",
+        backgroundColor: "#E9532B",
+        data: [213,190,160,111,100,189]
+      }]
+    };
+
+    var partnerBarChart = new Chart(partnerCtx, {
+      type: 'bar',
+      data: partnerChartData,
+      options: {
+        title: {
+          display: true,
+          text: 'Total Contributions Committed'
+        },
+        barValueSpacing: 20,
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: 0,
+            }
+          }]
+        }
+      }
+    });
+
+    
+
+    var dmcMap, partnerMap, dmcHeatMap, partnerHeatMap, pointarray, heatmap;
+    var csv = [];
+    var dmcMarkerArray = [];
+    var partnerMarkerArray = [];
+    var dmcWindowArray = [];
+    var partnerWindowArray = [];
+          
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    function loadData(map, data,heatmap, markerArray, infowindowArray,mapType) {
+    
+      Papa.parse(data, {
+        download: true,
+        header: true,
+        dynamicTyping: true,
+        complete: function(results) {
+          csv = [];
+        
+         
+          if(results.meta.fields.indexOf("weight") == -1) {
+            for(idx in results["data"]) {
+              var row = results["data"][idx];
+              csv.push(new google.maps.LatLng(row["lat"], row["lon"]))
+            }
+          } else {
+            var max = results["data"][0]["weight"];
+            for(idx in results["data"]) {
+              var row = results["data"][idx];
+             
+              max = Math.max(max, row["weight"]);
+              var newLocation = new google.maps.LatLng(row["lat"], row["lon"]);
+
+              var content;
+              var link;
+
+              if (mapType == "dmc"){
+                  content = '<b>'+ row["cnt"] +' Cofinanced Projects</b><br><br>'
+                  +'<div><table><tr><td></td><td><b>No. of Projects</b></td><td><b>|Total Amount(USD$)</b></td>'
+                  +'<tr><td><b>Loans: </b></td><td align="center">'+row["grnt"]+'</td><td align="center">' + '$' + row["grnt_amt"] + 'M' + '</td></tr>'
+                  +'<tr><td><b>Grants: </td></b><td align="center">'+row["ln"]+'</td><td align="center">' + '$' + row["ln_amt"] + 'M' + '</td></tr>'
+                  +'<tr><td><b>TAs: </b></td><td align="center">'+row["ta"]+'</td><td align="center">' + '$' + row["ta_amt"] + 'M' + '</td></tr>'
+                  +'<tr><td><b>Total: </b></td><td align="center">'+row["weight"]+'</td><td align="center">$97M</td></tr></table></div>'; 
+                  link = 'dmc.html';
+
+              }else{
+
+              content = '<b>'+row["cnt"] +' Total Contribution Commited($USD)</b><br><br>'
+                  +'<table width="100%"><tr><td><b>Trust Funds: </b></td> <td align="center">'+'$'+row["trust"]+'M</td></tr>'
+                  +'<tr><b><td><b>Project Specific: </b></td><td align="center">$'+row["project"]+ 'M</td></tr>'
+                  +'<tr><b><td><b>Total: </b></td><td align="center">$'+row["project"]+ 'M</td></tr></table></div>';
+                  link = 'country.html';
+              }
+              
+              var image = {
+                  url: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Square.gif',
+                    size: new google.maps.Size(32, 32),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(16, 16)
+              };
+              var shape = {
+                coords: [32, 1, 1, 20, 18, 20, 18, 32],
+                type: 'poly'
+              };
+              
+              var marker = new google.maps.Marker({
+                position: newLocation,
+                map: map,
+                url: link,
+                icon: image,
+                opacity:0.0,
+                shape: shape
+              });
+
+              markerArray.push(marker);
+
+             var infowindow =  new google.maps.InfoWindow({
+              content: content,
+            
+              });
+
+             infowindowArray.push(infowindow);
+
+              //push into csv
+              csv.push({
+                location: newLocation,
+                weight: row["weight"],
+
+              });
+          }
+
+            //$("#max-label").html("max: "+numberWithCommas(max));
+            //$("#max-slider").slider("option","max",max);
+            //$("#max-slider").slider("option","value",max);
+        }
+          
+          console.log(results);
+
+          //add event handlers for all the markers
+          for (x in markerArray){
+            //mouseover event to open info window containing data
+            google.maps.event.addListener(markerArray[x], 'mouseover', (function(x) {
+              return function() {
+                infowindowArray[x].open(map,markerArray[x]);
+              }
+            })(x));
+
+            //mouseout to close window
+            google.maps.event.addListener(markerArray[x], 'mouseout', (function(x) {
+              return function() {
+                infowindowArray[x].close();
+              }
+            })(x));
+
+            //add a click event to open a new link
+            google.maps.event.addListener(markerArray[x], 'click', (function(x) {
+              return function() {
+                 window.location.href = markerArray[x].url;         
+              }
+            })(x));
+          }
+                    
+          loadHeatmap(csv,map,heatmap);
+        }
+      });
+    }
+    
+
+     
+    function initialize() {
+      var mapOptions = {
+      zoom: 3,
+      center: new google.maps.LatLng(14, 120),
+      mapTypeId: google.maps.MapTypeId.MAP
+      };
+      dmcMap = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+
+      var mapOptions2 = {
+      zoom: 2,
+      center: new google.maps.LatLng(35, 139),
+      mapTypeId: google.maps.MapTypeId.MAP
+      };
+
+      partnerMap = new google.maps.Map(document.getElementById('map-canvas-partners'),
+        mapOptions2);
+      
+
+    //LOAD DATA FROM REMOTE CSV FILES
+
+      loadData(partnerMap,'https://dl.dropboxusercontent.com/s/d6g29t7u0s7unkq/partner.csv?dl=0',partnerHeatMap,partnerMarkerArray,partnerWindowArray,'partner');
+      loadData(dmcMap,'https://u9118597.dl.dropboxusercontent.com/u/9118597/dmc.csv?dl=0',dmcHeatMap,dmcMarkerArray,dmcWindowArray,'dmc');
+    }
+    
+    function loadHeatmap(csv, map,heatmap) {
+      var pointArray = new google.maps.MVCArray(csv);
+      if(heatmap) heatmap.setMap(null);
+      
+      heatmap = new google.maps.visualization.HeatmapLayer({
+        data: pointArray,
+        dissipating: false,
+        radius: 3,
+        opacity: 50
+      });
+      
+      heatmap.setMap(map); 
+    }
+
+
+    
+    $(document).ready(function(){
+      
+      google.maps.event.addDomListener(window, 'load', initialize);
+       
+    });
+ 
+  </script>
+</html>

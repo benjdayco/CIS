@@ -190,7 +190,7 @@
               
                         <div id="cofinance-filter" class="row">
                         
-                          <div class="col-md-4">
+                          <div class="col-md-3">
                             <span class="label label-default input-label">Year</span>
                             <select id="year-select">
                               <option value="">All</option>
@@ -198,6 +198,14 @@
                               <option value="2005">2005</option>
                               <option value="2006">2006</option>
                               <option value="2007">2007</option>
+                            </select>
+                          </div>
+
+                          <div class="col-md-6">
+                            <span class="label label-default input-label">Administrative Arrangement</span>
+                            <select id="year-select">
+                              <option value="2004">Contractual</option>
+                              <option value="2005">Collaborative</option>
                             </select>
                           </div>
 
@@ -218,9 +226,7 @@
                     </thead>
                     <tbody>
 
-                      <!--Collaborative-->
-                      <tr><td colspan="18" class="admin-arrangement loan-collaborative"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer loan-collaborative-pointer" aria-hidden="true"></span></a>Contractual</td></tr>                     
-                      <tr class="project 1 loan-collaborative-project">
+                      <tr class="loan-collaborative-project">
                         <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -229,7 +235,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="project 1 loan-collaborative-project">
+                      <tr class="loan-collaborative-project">
                         <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -238,7 +244,16 @@
                         <td>Closed</td>
                      </tr>
 
-                      <tr class="project 1 loan-collaborative-project">
+                      <tr class="loan-collaborative-project">
+                        <td>LOAN</td>
+                        <td>0001</td>
+                        <td>IND</td>
+                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
+                        <td>2006</td>
+                        <td>Closed</td>
+                      </tr>
+                     
+                      <tr class="loan-contractual-project">
                         <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -247,10 +262,7 @@
                         <td>Closed</td>
                       </tr>
 
-
-                      <!--Contractual-->
-                      <tr><td colspan="18" class="admin-arrangement loan-contractual"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer loan-contractual-pointer" aria-hidden="true"></span></a>Collaborative</td></tr>                     
-                      <tr class="project 2 loan-contractual-project">
+                      <tr class="loan-contractual-project">
                         <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -259,16 +271,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="project 2 loan-contractual-project">
-                        <td>LOAN</td>
-                        <td>0001</td>
-                        <td>IND</td>
-                        <td><a href="cofinance-projects.html">Tsunami Emergency Assistance</a></td>
-                        <td>2006</td>
-                        <td>Closed</td>
-                      </tr>
-
-                      <tr class="project 2 loan-contractual-project">
+                      <tr class="loan-contractual-project">
                         <td>LOAN</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -312,7 +315,7 @@
               
                         <div id="cofinance-filter" class="row">
                         
-                          <div class="col-md-4">
+                          <div class="col-md-3">
                             <span class="label label-default input-label">Year</span>
                             <select id="year-select">
                               <option value="">All</option>
@@ -320,6 +323,14 @@
                               <option value="2005">2005</option>
                               <option value="2006">2006</option>
                               <option value="2007">2007</option>
+                            </select>
+                          </div>
+
+                          <div class="col-md-6">
+                            <span class="label label-default input-label">Administrative Arrangement</span>
+                            <select id="year-select">
+                              <option value="2004">Contractual</option>
+                              <option value="2005">Collaborative</option>
                             </select>
                           </div>
 
@@ -341,8 +352,7 @@
                     <tbody>
 
                       <!--Collaborative-->
-                      <tr><td colspan="18" class="admin_arrangement collaborative"><a href=""><span id="1" class="glyphicon glyphicon-triangle-right pointer grants-collaborative-pointer" aria-hidden="true"></span></a>Contractual</td></tr>                     
-                      <tr class="project 1 collaborative-project">
+                      <tr class="collaborative-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -351,7 +361,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="project 1 collaborative-project">
+                      <tr class="collaborative-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -360,7 +370,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="project 1 collaborative-project">
+                      <tr class="collaborative-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -370,8 +380,7 @@
                       </tr>
 
 
-                      <tr><td colspan="18" class="admin_arrangement contractual"><a href=""><span id="2" class="glyphicon glyphicon-triangle-right pointer grants-contractual-pointer" aria-hidden="true"></span></a>Collaborative</td></tr>                     
-                      <tr class="project 2 contractual-project">
+                      <tr class="contractual-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -380,7 +389,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="project 2 contractual-project">
+                      <tr class="contractual-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>
@@ -389,7 +398,7 @@
                         <td>Closed</td>
                       </tr>
 
-                      <tr class="project 2 contractual-project">
+                      <tr class="contractual-project">
                         <td>GRANT</td>
                         <td>0001</td>
                         <td>IND</td>

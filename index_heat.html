@@ -151,6 +151,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/Chart.min.js"></script>
+  <script src="js/d3.v4.js"></script>
   <link rel="stylesheet" href="css/jquery-ui.css">
 
   <script>
@@ -291,9 +292,9 @@
               if (mapType == "dmc"){
                   content = '<b>'+ row["cnt"] +' Cofinanced Projects</b><br><br>'
                   +'<div><table><tr><td></td><td><b>No. of Projects</b></td><td><b>|Total Amount(USD$)</b></td>'
-                  +'<tr><td><b>Loans: </b></td><td align="center">'+row["grnt"]+'</td><td align="center">' + '$' + row["grnt_amt"] + 'M' + '</td></tr>'
-                  +'<tr><td><b>Grants: </td></b><td align="center">'+row["ln"]+'</td><td align="center">' + '$' + row["ln_amt"] + 'M' + '</td></tr>'
-                  +'<tr><td><b>TAs: </b></td><td align="center">'+row["ta"]+'</td><td align="center">' + '$' + row["ta_amt"] + 'M' + '</td></tr>'
+                  +'<tr><td><b>Loans: </b></td><td align="center">'+row["grnt"]+'</td><td align="center">$20M</td></tr>'
+                  +'<tr><td><b>Grants: </td></b><td align="center">'+row["ln"]+'</td><td align="center">$40M</td></tr>'
+                  +'<tr><td><b>TAs: </b></td><td align="center">'+row["ta"]+'</td><td align="center">$27M</td></tr>'
                   +'<tr><td><b>Total: </b></td><td align="center">'+row["weight"]+'</td><td align="center">$97M</td></tr></table></div>'; 
                   link = 'dmc.html';
 
@@ -302,7 +303,7 @@
               content = '<b>'+row["cnt"] +' Total Contribution Commited($USD)</b><br><br>'
                   +'<table width="100%"><tr><td><b>Trust Funds: </b></td> <td align="center">'+'$'+row["trust"]+'M</td></tr>'
                   +'<tr><b><td><b>Project Specific: </b></td><td align="center">$'+row["project"]+ 'M</td></tr>'
-                  +'<tr><b><td><b>Total: </b></td><td align="center">$'+row["project"]+ 'M</td></tr></table></div>';
+                  +'<tr><b><td><b>Total: </b></td><td align="center">$'+row["weight"]+ 'M</td></tr></table></div>';
                   link = 'country.html';
               }
               
@@ -378,7 +379,123 @@
         }
       });
     }
+
+function loadTestData(map, data,heatmap, markerArray, infowindowArray,mapType) {
     
+      Papa.parse(data, {
+        download: true,
+        header: true,
+        dynamicTyping: true,
+        complete: function(results) {
+          csv = [];
+        
+         
+          if(results.meta.fields.indexOf("weight") == -1) {
+            for(idx in results["data"]) {
+              var row = results["data"][idx];
+              csv.push(new google.maps.LatLng(row["lat"], row["lon"]))
+            }
+          } else {
+            var max = results["data"][0]["weight"];
+            for(idx in results["data"]) {
+              var row = results["data"][idx];
+             
+              max = Math.max(max, row["weight"]);
+              var newLocation = new google.maps.LatLng(row["lat"], row["lon"]);
+
+              var content;
+              var link;
+
+              if (mapType == "dmc"){
+                  content = '<b>'+ row["cnt"] +' Cofinanced Projects</b><br><br>'
+                  +'<div><table><tr><td></td><td><b>No. of Projects</b></td><td><b>|Total Amount(USD$)</b></td>'
+                  +'<tr><td><b>Loans: </b></td><td align="center">'+row["grnt"]+'</td><td align="center">$20M</td></tr>'
+                  +'<tr><td><b>Grants: </td></b><td align="center">'+row["ln"]+'</td><td align="center">$40M</td></tr>'
+                  +'<tr><td><b>TAs: </b></td><td align="center">'+row["ta"]+'</td><td align="center">$27M</td></tr>'
+                  +'<tr><td><b>Total: </b></td><td align="center">'+row["weight"]+'</td><td align="center">$97M</td></tr></table></div>'; 
+                  link = 'dmc.html';
+
+              }else{
+
+              content = '<b>'+row["cnt"] +' Total Contribution Commited($USD)</b><br><br>'
+                  +'<table width="100%"><tr><td><b>Trust Funds: </b></td> <td align="center">'+'$'+row["trust"]+'M</td></tr>'
+                  +'<tr><b><td><b>Project Specific: </b></td><td align="center">$'+row["project"]+ 'M</td></tr>'
+                  +'<tr><b><td><b>Total: </b></td><td align="center">$'+row["weight"]+ 'M</td></tr></table></div>';
+                  link = 'country.html';
+              }
+              
+              var image = {
+                  url: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Square.gif',
+                    size: new google.maps.Size(32, 32),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(16, 16)
+              };
+              var shape = {
+                coords: [32, 1, 1, 20, 18, 20, 18, 32],
+                type: 'poly'
+              };
+              
+              var marker = new google.maps.Marker({
+                position: newLocation,
+                map: map,
+                url: link,
+                icon: image,
+                opacity:0.0,
+                shape: shape
+              });
+
+              markerArray.push(marker);
+
+             var infowindow =  new google.maps.InfoWindow({
+              content: content,
+            
+              });
+
+             infowindowArray.push(infowindow);
+
+              //push into csv
+              csv.push({
+                location: newLocation,
+                weight: row["weight"],
+
+              });
+          }
+
+            //$("#max-label").html("max: "+numberWithCommas(max));
+            //$("#max-slider").slider("option","max",max);
+            //$("#max-slider").slider("option","value",max);
+        }
+          
+          console.log(results);
+
+          //add event handlers for all the markers
+          for (x in markerArray){
+            //mouseover event to open info window containing data
+            google.maps.event.addListener(markerArray[x], 'mouseover', (function(x) {
+              return function() {
+                infowindowArray[x].open(map,markerArray[x]);
+              }
+            })(x));
+
+            //mouseout to close window
+            google.maps.event.addListener(markerArray[x], 'mouseout', (function(x) {
+              return function() {
+                infowindowArray[x].close();
+              }
+            })(x));
+
+            //add a click event to open a new link
+            google.maps.event.addListener(markerArray[x], 'click', (function(x) {
+              return function() {
+                 window.location.href = markerArray[x].url;         
+              }
+            })(x));
+          }
+                    
+          loadHeatmap(csv,map,heatmap);
+        }
+      });
+    }
 
      
     function initialize() {
@@ -403,7 +520,7 @@
     //LOAD DATA FROM REMOTE CSV FILES
 
       loadData(partnerMap,'https://dl.dropboxusercontent.com/s/d6g29t7u0s7unkq/partner.csv?dl=0',partnerHeatMap,partnerMarkerArray,partnerWindowArray,'partner');
-      loadData(dmcMap,'https://u9118597.dl.dropboxusercontent.com/u/9118597/dmc.csv?dl=0',dmcHeatMap,dmcMarkerArray,dmcWindowArray,'dmc');
+      loadData(dmcMap,'https://dl.dropboxusercontent.com/s/5qrhlte26fvg99e/dmc.csv?dl=0',dmcHeatMap,dmcMarkerArray,dmcWindowArray,'dmc');
     }
     
     function loadHeatmap(csv, map,heatmap) {
@@ -419,6 +536,8 @@
       
       heatmap.setMap(map); 
     }
+
+    
 
 
     
